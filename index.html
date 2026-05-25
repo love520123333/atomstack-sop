@@ -1,0 +1,2281 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>王文明的AtomStack 海外客服 SOP 帮助中心</title>
+<style>
+:root{
+  --bg:#0d1117;--bg2:#161b22;--bg3:#21262d;--bg4:#30363d;
+  --border:#30363d;--text:#e6edf3;--muted:#8b949e;
+  --blue:#58a6ff;--green:#3fb950;--orange:#d29922;--red:#f85149;
+  --purple:#bc8cff;--cyan:#39d353;--yellow:#e3b341;
+  --grad1:linear-gradient(135deg,#1f6feb,#388bfd);
+  --grad2:linear-gradient(135deg,#238636,#2ea043);
+  --grad3:linear-gradient(135deg,#6e40c9,#8957e5);
+  --grad4:linear-gradient(135deg,#b08800,#e3b341);
+  --grad5:linear-gradient(135deg,#cf222e,#f85149);
+  --shadow:0 8px 24px rgba(0,0,0,.6);
+  --radius:12px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:"Segoe UI",system-ui,sans-serif;min-height:100vh;overflow-x:hidden}
+
+/* ─── scrollbar ─── */
+::-webkit-scrollbar{width:6px;height:6px}
+::-webkit-scrollbar-track{background:var(--bg2)}
+::-webkit-scrollbar-thumb{background:var(--bg4);border-radius:3px}
+
+/* ─── header ─── */
+header{background:var(--bg2);border-bottom:1px solid var(--border);padding:16px 32px;display:flex;align-items:center;gap:16px;position:sticky;top:0;z-index:100;backdrop-filter:blur(8px)}
+.logo{font-size:22px;font-weight:700;background:var(--grad1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;white-space:nowrap}
+.tagline{color:var(--muted);font-size:13px}
+.lang-btn{margin-left:auto;display:flex;gap:8px}
+.lang-btn button{background:var(--bg3);border:1px solid var(--border);color:var(--text);padding:6px 14px;border-radius:20px;cursor:pointer;font-size:13px;transition:.2s}
+.lang-btn button:hover,.lang-btn button.active{background:var(--blue);color:#fff;border-color:var(--blue)}
+
+/* ─── hero ─── */
+.hero{padding:48px 32px 32px;text-align:center}
+.hero h1{font-size:32px;font-weight:800;background:var(--grad1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:12px}
+.hero p{color:var(--muted);font-size:15px;max-width:600px;margin:0 auto}
+
+/* ─── main layout ─── */
+.main{max-width:1400px;margin:0 auto;padding:0 24px 80px}
+
+/* ─── section title ─── */
+.sec-title{font-size:20px;font-weight:700;margin:40px 0 20px;padding-bottom:10px;border-bottom:2px solid var(--border);display:flex;align-items:center;gap:10px}
+
+/* ─── flow grid (main process nodes) ─── */
+.flow-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:16px;margin-bottom:32px}
+.flow-card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:20px 16px;cursor:pointer;transition:.25s;text-align:center;position:relative;overflow:hidden}
+.flow-card::before{content:'';position:absolute;inset:0;opacity:0;transition:.25s}
+.flow-card:hover::before,.flow-card.active::before{opacity:1}
+.flow-card.c1::before{background:var(--grad1)}
+.flow-card.c2::before{background:var(--grad2)}
+.flow-card.c3::before{background:var(--grad3)}
+.flow-card.c4::before{background:var(--grad4)}
+.flow-card.c5::before{background:var(--grad5)}
+.flow-card.c6::before{background:linear-gradient(135deg,#0d419d,#388bfd)}
+.flow-card.c7::before{background:linear-gradient(135deg,#145a32,#1e8449)}
+.flow-card.c8::before{background:linear-gradient(135deg,#7d3c98,#a569bd)}
+.flow-card.c9::before{background:linear-gradient(135deg,#b7950b,#d4ac0d)}
+.flow-card .fc-inner{position:relative;z-index:1}
+.flow-card:hover,.flow-card.active{border-color:transparent;box-shadow:var(--shadow);transform:translateY(-2px)}
+.flow-card .fc-icon{font-size:28px;margin-bottom:8px}
+.flow-card .fc-name{font-size:14px;font-weight:700;line-height:1.4}
+.flow-card .fc-sub{font-size:12px;color:var(--muted);margin-top:4px}
+.flow-card.active .fc-sub{color:rgba(255,255,255,.7)}
+
+/* ─── detail panel ─── */
+.dp{display:none;background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:28px;margin-bottom:24px;animation:fadeIn .3s ease}
+.dp.show{display:block}
+@keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.dp-header{display:flex;align-items:center;gap:12px;margin-bottom:24px}
+.dp-header h2{font-size:20px;font-weight:700}
+.close-btn{margin-left:auto;background:var(--bg3);border:1px solid var(--border);color:var(--muted);width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center;transition:.2s}
+.close-btn:hover{background:var(--red);color:#fff;border-color:var(--red)}
+
+/* ─── tabs ─── */
+.tab-bar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px;border-bottom:1px solid var(--border);padding-bottom:12px}
+.tab-btn{background:var(--bg3);border:1px solid var(--border);color:var(--muted);padding:7px 16px;border-radius:20px;cursor:pointer;font-size:13px;transition:.2s;white-space:nowrap}
+.tab-btn:hover{color:var(--text);border-color:var(--blue)}
+.tab-btn.active{background:var(--blue);color:#fff;border-color:var(--blue)}
+.cb{display:none}
+.cb.show{display:block}
+
+/* ─── content blocks ─── */
+.ic{background:var(--bg3);border-radius:10px;padding:20px;margin-bottom:16px}
+.ic h3{font-size:15px;font-weight:700;margin-bottom:12px;color:var(--blue)}
+.ic h4{font-size:13px;font-weight:600;margin:14px 0 6px;color:var(--orange)}
+.ic p,.ic li{font-size:13px;line-height:1.7;color:var(--text)}
+.ic ul,.ic ol{padding-left:20px;margin:8px 0}
+.ic ol li{margin-bottom:4px}
+.ic code{background:var(--bg4);padding:2px 6px;border-radius:4px;font-size:12px;font-family:monospace;color:var(--cyan)}
+
+/* ─── step list ─── */
+.steps{counter-reset:step}
+.step-item{display:flex;gap:14px;margin-bottom:12px;align-items:flex-start}
+.step-num{min-width:26px;height:26px;border-radius:50%;background:var(--blue);color:#fff;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+.step-text{font-size:13px;line-height:1.7;flex:1}
+
+/* ─── email template card ─── */
+.email-card{background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:16px;margin-bottom:12px;font-size:12px;line-height:1.7;font-family:monospace;white-space:pre-wrap;word-break:break-all;color:var(--muted)}
+.email-card.cn{border-left:3px solid var(--orange)}
+.email-card.en{border-left:3px solid var(--blue)}
+.email-label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px}
+.email-label.cn{color:var(--orange)}
+.email-label.en{color:var(--blue)}
+
+/* ─── info badge ─── */
+.badge{display:inline-block;padding:3px 10px;border-radius:12px;font-size:11px;font-weight:700;margin-right:6px}
+.badge.blue{background:rgba(88,166,255,.15);color:var(--blue);border:1px solid rgba(88,166,255,.3)}
+.badge.green{background:rgba(63,185,80,.15);color:var(--green);border:1px solid rgba(63,185,80,.3)}
+.badge.orange{background:rgba(210,153,34,.15);color:var(--orange);border:1px solid rgba(210,153,34,.3)}
+.badge.red{background:rgba(248,81,73,.15);color:var(--red);border:1px solid rgba(248,81,73,.3)}
+.badge.purple{background:rgba(188,140,255,.15);color:var(--purple);border:1px solid rgba(188,140,255,.3)}
+
+/* ─── alert/note ─── */
+.note{background:rgba(210,153,34,.1);border-left:3px solid var(--orange);padding:12px 16px;border-radius:0 8px 8px 0;font-size:13px;margin:12px 0;color:var(--yellow)}
+.note.info{background:rgba(88,166,255,.1);border-color:var(--blue);color:var(--blue)}
+.note.danger{background:rgba(248,81,73,.1);border-color:var(--red);color:var(--red)}
+.note.success{background:rgba(63,185,80,.1);border-color:var(--green);color:var(--green)}
+
+/* ─── table ─── */
+.tbl-wrap{overflow-x:auto;margin:12px 0}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th{background:var(--bg4);color:var(--text);padding:10px 12px;text-align:left;font-weight:600}
+td{padding:9px 12px;border-bottom:1px solid var(--border);vertical-align:top;line-height:1.6}
+tr:hover td{background:var(--bg3)}
+
+/* ─── decision tree ─── */
+.dtree{display:flex;flex-direction:column;gap:8px;margin:16px 0}
+.dtree-row{display:flex;align-items:stretch;gap:0}
+.dt-node{background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:10px 14px;font-size:13px;text-align:center;min-width:130px}
+.dt-arrow{display:flex;align-items:center;padding:0 8px;color:var(--muted);font-size:18px}
+.dt-label{font-size:11px;color:var(--muted);text-align:center;margin-top:4px}
+.dt-yes{color:var(--green);font-weight:700}
+.dt-no{color:var(--red);font-weight:700}
+
+/* ─── logistics table ─── */
+.logistics-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px;margin-top:16px}
+.lg-card{background:var(--bg3);border:1px solid var(--border);border-radius:10px;padding:16px}
+.lg-name{font-weight:700;font-size:14px;margin-bottom:10px;color:var(--blue)}
+.lg-row{display:flex;gap:8px;margin-bottom:6px;font-size:12px}
+.lg-key{color:var(--muted);min-width:70px;flex-shrink:0}
+.lg-val{color:var(--text);word-break:break-all}
+
+/* ─── dealer table ─── */
+.dealer-card{background:var(--bg3);border:1px solid var(--border);border-radius:10px;padding:16px;margin-bottom:12px}
+.dealer-no{font-size:11px;color:var(--muted);margin-bottom:4px}
+.dealer-name{font-size:14px;font-weight:700;margin-bottom:8px}
+.dealer-row{display:flex;gap:8px;margin-bottom:4px;font-size:12px}
+.dealer-key{color:var(--muted);min-width:65px}
+
+/* ─── back-to-top ─── */
+#btt{position:fixed;bottom:28px;right:28px;width:42px;height:42px;border-radius:50%;background:var(--bg3);border:1px solid var(--border);color:var(--muted);font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:0;transition:.3s;z-index:200}
+#btt.show{opacity:1}
+#btt:hover{background:var(--blue);color:#fff;border-color:var(--blue)}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">⚡ AtomStack</div>
+  <div class="tagline">海外客服 SOP 帮助中心 · Customer Service SOP Hub</div>
+  <div class="lang-btn">
+    <button class="active" onclick="setLang('zh')">中文</button>
+    <button onclick="setLang('en')">EN</button>
+  </div>
+</header>
+<div class="hero">
+  <h1>赵珍纬的海外客服 SOP 帮助中心</h1>
+  <p>涵盖购买咨询、退货退款、物流处理、工单创建等全流程操作规范及邮件模板，支持中英文切换。</p>
+</div>
+<div class="main">
+
+<div class="sec-title">📋 主流程导航 · Process Navigator</div>
+<div class="flow-grid">
+  <div class="flow-card c4" onclick="toggle('d-vat')">
+    <div class="fc-inner"><div class="fc-icon">🏷️</div>
+      <div class="fc-name">税费 VAT</div>
+      <div class="fc-sub">英国 / 瑞士关税处理</div></div></div>
+  <div class="flow-card c5" onclick="toggle('d-p1')">
+    <div class="fc-inner"><div class="fc-icon">🔔</div>
+      <div class="fc-name">P1 召回项目</div>
+      <div class="fc-sub">欧盟合规升级说明</div></div></div>
+  <div class="flow-card c1" onclick="toggle('d-purchase')">
+    <div class="fc-inner"><div class="fc-icon">🛒</div>
+      <div class="fc-name">购买咨询</div>
+      <div class="fc-sub">软件 / 产品 / 配件购买</div></div></div>
+  <div class="flow-card c2" onclick="toggle('d-logistics')">
+    <div class="fc-inner"><div class="fc-icon">🚚</div>
+      <div class="fc-name">物流相关</div>
+      <div class="fc-sub">丢件 / 破损 / 退件处理</div></div></div>
+  <div class="flow-card c3" onclick="toggle('d-refund')">
+    <div class="fc-inner"><div class="fc-icon">↩️</div>
+      <div class="fc-name">退货退款&换货</div>
+      <div class="fc-sub">产品问题 / 客户原因</div></div></div>
+  <div class="flow-card c6" onclick="toggle('d-policy')">
+    <div class="fc-inner"><div class="fc-icon">📄</div>
+      <div class="fc-name">官网售后政策</div>
+      <div class="fc-sub">保修范围 / 退货政策</div></div></div>
+  <div class="flow-card c7" onclick="toggle('d-ticket')">
+    <div class="fc-inner"><div class="fc-icon">🎫</div>
+      <div class="fc-name">创建工单</div>
+      <div class="fc-sub">领星 ERP 工单操作</div></div></div>
+  <div class="flow-card c8" onclick="toggle('d-other')">
+    <div class="fc-inner"><div class="fc-icon">🔧</div>
+      <div class="fc-name">其他事项</div>
+      <div class="fc-sub">补发 / 视频会议 / 发票等</div></div></div>
+  <div class="flow-card c9" onclick="toggle('d-dealer')">
+    <div class="fc-inner"><div class="fc-icon">🏪</div>
+      <div class="fc-name">经销商明细</div>
+      <div class="fc-sub">11 家经销商信息</div></div></div>
+</div>
+
+<!-- ══ 购买咨询 详情 ══ -->
+<div id="d-purchase" class="dp">
+<div class="dp-header">
+  <span style="font-size:24px">🛒</span>
+  <h2>购买咨询</h2>
+  <button class="close-btn" onclick="toggle('d-purchase')">✕</button>
+</div>
+<div class="tab-bar">
+  <button class="tab-btn active" onclick="showTab('p','p-lb')">软件购买 (LightBurn)</button>
+  <button class="tab-btn" onclick="showTab('p','p-b2b')">产品购买 · 企业客户</button>
+  <button class="tab-btn" onclick="showTab('p','p-b2c')">产品购买 · 散客/个人</button>
+  <button class="tab-btn" onclick="showTab('p','p-acc-ask')">配件询问购买</button>
+  <button class="tab-btn" onclick="showTab('p','p-acc-flow')">配件购买流程</button>
+</div>
+
+<div id="p-lb" class="cb show">
+<div class="ic"><h3>📌 流程说明</h3>
+<p>LihgtBurn软件不支持单独购买</p>
+<p>流程：</p>
+<div class="step-item"><div class="step-num">1</div><div class="step-text">客户提出想要购买LIGHTBURN软件</div></div>
+<div class="step-item"><div class="step-num">2</div><div class="step-text">在独立站运营群请运营通过创建Draft购买链接</div></div>
+<div class="step-item"><div class="step-num">3</div><div class="step-text">将链接发给客户就可以购买了</div></div>
+<p>说明：</p>
+<div class="step-item"><div class="step-num">1</div><div class="step-text">我们仅仅是LighBurn软件的授权经销商，</div></div>
+<p>关于LightBurn的使用政策问题请直接联系support@lightburn.com 尝试获得更多帮助</p>
+<div class="step-item"><div class="step-num">2</div><div class="step-text">Draft链接客户完成购买会失效</div></div>
+<div class="step-item"><div class="step-num">3</div><div class="step-text">客户漏买或是我们的客户，根据实际情况判断是否需要提供软件购买折扣</div></div>
+</div>
+<div class="email-label cn">📧 中文模板</div><div class="email-card cn">邮件标题：LightBurn软件购买 （折扣已应用）
+
+亲爱的顾客，
+
+感谢您有兴趣购买LightBurn软件。
+
+我们很高兴为您提供(eg:$30折扣)购买LightBurn许可证。/我们已为您创建了专属购买链接：
+购买链接： [Draft订单链接]
+
+购买步骤：
+- 点击以上链接
+- 加入购物车
+- 完成付款
+- 付款完成后，您将通过邮件收到许可证密钥。
+
+重要提示：
+此报价有效期为7天, 如有任何问题，请随时联系我们。
+我们主要协助License购买与激活问题；
+软件功能、兼容性、BUG等由LightBurn官方提供支持。
+由于LightBurn License属于数字产品：
+License发放后通常不支持退款
+请在付款前确认好需求
+此致，</div>
+<div class="email-label en">📧 English Template</div><div class="email-card en">邮件标题： LightBurn Software Purchase  (Discount Applied)
+
+英文回复：
+Dear Dear Valued Customer,
+
+Thank you for your interest in purchasing LightBurn software.
+
+We are pleased to offer you a $30 discount on your LightBurn license purchase./ We have created a dedicated purchase link for you:
+Purchase Link: [Draft Link]
+
+Steps to complete your purchase:
+- Click the link above
+- Add to cart
+- Complete the payment
+- Once payment is completed, you will receive the license key via email.
+
+Important Notes:
+This quotation is valid for 7 days, If you have any questions, please feel free to contact us.
+
+Best regards,</div>
+</div>
+
+<div id="p-b2b" class="cb">
+<div class="ic"><h3>📌 流程 / 说明</h3>
+<div style="white-space:pre-wrap;font-size:13px;line-height:1.7">
+企业类型客户购买
+
+判断特点：（待补充）
+1. 客户在邮件需要PI - 形式发票/ Quoatation - 报价单等方式购买
+2, 客户咨询VAT/税费等信息
+3. 客户需要增值税发票等
+4. 客户想要OEM定制
+5. 客户想要大宗购买
+6. 客户的邮箱非个人邮箱 eg: info@magic-train.it
+
+解决思路：
+1. 判断客户属性归类
+2. 告知客户我们可以提供灵活的购买方式
+- 官网直接购买 - 提供带税号的（电子发票）
+- 向客户推荐外贸部门 - Greece对接人邮箱: grace@atomstack.com
+
+
+注意事项：
+1. 客户咨询各类税务相关问题
+- 我们的系统无法接入欧盟与英国的税务系统实现增值税抵扣
+- 我们可以提供 Invoice(bill 部分加税号)方便客人自行用合适的方式去申报
+- 线上电子发票可以根据客户的要求把总额和税费拆分
+
+2. 其他企业类型客户
+- 客户需要PI 或 报价单 可以对接给Greece
+- 完成《客户资源与线索追踪表格》@对接人
+- 或在《海外客户资源沟通群》@对接人
+
+3. 我们无法开具增值税专用发票 - 客户有需求推荐外贸部对接</div>
+</div>
+<div class="email-label cn">📧 中文模板</div><div class="email-card cn">通用参考模板 - 根据客户情况自行调整/删减/增加
+
+模板B2B-1：企业客户首询 — 确认需求 + 推荐购买方式
+
+English:
+Dear Customer,
+
+Thank you for your interest in AtomStack products! We&#39;d be happy to assist with your purchase.
+
+To better understand your needs, could you please let us know:
+- Which product(s) and quantity you&#39;re interested in
+- Whether this is for business/resale purposes
+- Your shipping country
+
+We offer flexible purchasing options:
+- Direct purchase: You can order directly from our official website
+- Invoice with tax ID: We can issue an electronic invoice with your company tax ID for your own VAT declaration
+- Custom quotation/PI: For bulk orders or special requirements, we can connect you with our foreign trade team
+
+Please let us know your preference and we&#39;ll proceed accordingly.
+
+Best regards,A
+
+
+中文：
+亲爱的顾客，
+感谢您对AtomStack产品的关注！我们很乐意协助您的采购。
+
+为了更好地了解您的需求，请您告知：
+- 您感兴趣的产品及数量
+- 是否用于商业/转售用途
+- 您的收货国家
+
+我们提供灵活的采购方式：
+- 直接购买：可通过我们的官网直接下单
+- 带税号发票：我们可以开具包含贵司税号的电子发票，供您自行申报增值税
+- 定制报价单/PI：大宗订单或特殊需求，我们可对接外贸团队为您服务
+
+请告知您的偏好，我们将为您安排。
+
+此致</div><div class="email-label en">📧 English Template</div><div class="email-card en">模板B2B-2：客户咨询VAT/税费问题
+
+English:
+Dear Customer,
+Thank you for your inquiry regarding VAT and tax information.
+Please note that our system is not integrated with the EU or UK tax systems for VAT deduction. However, we can issue an electronic invoice with your company&#39;s tax ID included, which you may use to declare VAT through the appropriate channels in your country.
+The online invoice can also be customized to show the total amount and tax separately, based on your requirements. （谨慎使用）
+If you need further assistance with tax-related matters, we&#39;d recommend consulting with your local tax advisor for the most accurate guidance.
+Please let us know how you&#39;d like to proceed.
+Best regards,
+
+
+中文：
+亲爱的顾客，
+感谢您关于增值税和税费信息的咨询。
+请注意，我们的系统目前无法接入欧盟或英国的税务系统实现增值税抵扣。但我们可以开具包含贵司税号的电子发票，您可通过贵国合适的渠道自行申报增值税。
+（线上电子发票也可根据您的要求，将总额和税费拆分显示。）- 谨慎使用
+如需更多税务方面的帮助，建议您咨询当地的税务顾问以获取最准确的指导。
+请告知您希望如何继续。
+此致</div><div class="email-label cn">📧 中文模板</div><div class="email-card cn">模板B2B-3：客户需要PI/报价单
+English:
+Dear Customer,
+Thank you for your inquiry. For proforma invoices (PI) and quotations, our foreign trade team will be best positioned to assist you.
+I&#39;ve forwarded your request to our trade specialist, who will reach out to you shortly at:
+grace@atomstack.com (Greece - Foreign Trade Department)
+They&#39;ll be able to provide a formal PI/quotation tailored to your requirements.
+If you have any other questions in the meantime, feel free to let us know.
+Best regards,AtomStack Customer Support
+
+
+中文：
+亲爱的顾客，
+感谢您的咨询。关于形式发票（PI）和报价单，我们的外贸团队可以更好地为您服务。
+我们已将您的需求转交至外贸专员，她将通过以下邮箱与您联系：
+grace@atomstack.com（Greece - 外贸部）
+她将根据您的需求提供正式的PI/报价单。
+如有其他问题，请随时告知。
+此致</div><div class="email-label en">📧 English Template</div><div class="email-card en">模板B2B-4：OEM定制需求
+
+English:
+Dear [Customer Name],
+Thank you for your interest in OEM customization with AtomStack!
+This type of request is handled by our foreign trade team, who can discuss the details and possibilities with you directly.
+I&#39;ve forwarded your inquiry to our specialist at:
+grace@atomstack.com (Greece - Foreign Trade Department)
+They will get back to you regarding OEM options, minimum order quantities, and pricing.
+Best regards,AtomStack Customer Support
+
+
+中文：
+亲爱的顾客，
+感谢您对AtomStack OEM定制的兴趣！
+此类需求由我们的外贸团队处理，他们可以与您直接讨论细节和可行性。
+我们已将您的需求转交至：
+grace@atomstack.com（Greece - 外贸部）
+他们将与您联系，沟通OEM方案、起订量及价格。
+此致</div><div class="email-label cn">📧 中文模板</div><div class="email-card cn">模板B2B-5：大宗购买
+
+English:
+Dear Customer,
+Thank you for your interest in bulk purchasing AtomStack products!
+For large quantity orders, we can offer more competitive pricing and flexible shipping arrangements. Our foreign trade team will work with you on a tailored quotation.
+I&#39;ve forwarded your request to:
+grace@atomstack.com (Greece - Foreign Trade Department)
+They&#39;ll reach out to you shortly with a detailed quotation.
+Best regards,AtomStack Customer Support
+
+
+中文：
+亲爱的顾客，
+感谢您对AtomStack产品大宗采购的兴趣！
+对于大数量订单，我们可以提供更具竞争力的价格和灵活的物流方案。我们的外贸团队将为您定制报价。
+我们已将您的需求转交至：
+grace@atomstack.com（Greece - 外贸部）
+他们将尽快与您联系，提供详细报价。
+此致</div></div>
+<div id="p-b2c" class="cb">
+<div class="ic"><h3>📌 流程 / 说明</h3>
+<div style="white-space:pre-wrap;font-size:13px;line-height:1.7">
+客户询问XX产品购买 - 这类客户多半是散客/个人买家居多
+
+判断特点：（待补充）
+1. 询问XX产品库存/上架/有货
+2. 询问XX配件购买路径
+3. 个别地区无法购买/下不了单：（待补充）
+- 墨西哥
+- 澳大利亚
+- 阿根廷
+注意：此种模式推荐找运营创建Draft链接购买，需提前获取客户地址
+4. 升级购买/漏买
+
+
+解决思路：
+1. 客户诉求需要根据客户地区如欧洲/美国以官网公布信息为准
+2. 确认官网无货 - 与运营确认产品状态 - 不补/预售/预计补货等
+3. 根据紧急程度选择沟通方式 - 独立站 Shopify 沟通群 / 运营-客服对接表
+4. 购买方式相对灵活 - 国内发货购买/Draft链接购买/外贸方式购买等
+5. 询问XX配件购买，优先在官网查看是否在售 
+- 官网在售 - 与运营确认产品情况
+- 官网不卖 - 参考配件购买流程
+6. 升级购买 - 看升级的是什么 - 可补差价/创建Draft链接 （做好备注）
+
+温馨提示：若客户属于第3种情况
+- 优先让客户告知想要购买的产品（裸机/主机+配件）
+- 让客户提供详细的配送地址+联系方式
+参考话术：请客户提供如上信息便于我们查询可配送范围</div>
+</div>
+<div class="email-label cn">📧 中文模板</div><div class="email-card cn">模板R-1：客户询问XX产品是否有货 - 通用模板
+
+
+English:
+Dear Customer,
+Thank you for your interest in AtomStack products!
+Currently, the [产品名] is [in stock / out of stock / available for pre-order] on our official website.
+[对应产品链接]
+Available：You can place your order directly at https://atomstack.com
+Out of Stock：We&#39;ve noted your interest and will notify you once it&#39;s back in stock. Would you like us to keep you updated?
+Pre -Sale：This product is currently available for pre-order with an estimated shipping date of [DATE].
+Please let us know if you have any other questions.
+Best regards,AtomStack Customer Support
+
+
+中文：
+亲爱的[客户姓名]，
+感谢您对AtomStack产品的关注！
+目前[产品名]在官网的状态为[有货/缺货/预售]。
+[对应产品链接]
+有货：您可以直接在官网下单 https://atomstack.com
+缺货：我们已记录您的需求，到货后会通知您。需要我们帮您留意吗？
+预售：该产品目前支持预售，预计发货时间为[日期]。
+如有其他问题，请随时告知。
+此致</div><div class="email-label en">📧 English Template</div><div class="email-card en">模板R-2（修订版）：客户地区无法下单
+
+
+English:
+Dear Customer,
+Thank you for your interest in AtomStack products! We&#39;re sorry to hear you&#39;re having trouble placing an order.
+This may be related to your region&#39;s shipping availability. To help us check whether we can deliver to your area, could you please provide:
+- Your full shipping address (including phone number for delivery)
+- Which product(s) you&#39;d like to order — the machine only, or together with accessories?
+Once we confirm that delivery is available for your region, we&#39;ll create a purchase link for you.
+Best regards,AtomStack Customer Support
+
+
+中文：
+亲爱的顾客，
+感谢您对AtomStack产品的兴趣！很遗憾您在下单时遇到了问题。
+这可能与您所在地区的配送范围有关。为了帮您确认是否可以配送到您所在的区域，请您提供：
+- 完整收货地址（含电话号码便于派送）
+- 您想购买的产品——仅裸机还是和配件一起购买？
+确认可配送后，我们会为您创建购买链接。
+此致</div><div class="email-label cn">📧 中文模板</div><div class="email-card cn">模板R-3：确认缺货 — 与运营核实后回复 - 通用模板根据情况自行调整/增加/删减
+
+
+English:
+Dear Customer,
+Thank you for your patience. We&#39;ve checked with our team regarding the [Product Name]:
+[根据运营反馈选择]
+- 不补货：Unfortunately, this product has been discontinued and is no longer available. Would you like us to recommend a similar alternative?
+- 预售中：This product is currently available for pre-order. The estimated restock date is [DATE]. Would you like to place a pre-order?
+- 预计补货：We expect this product to be back in stock around [日期]. Would you like us to notify you when it&#39;s available?
+Please let us know how you&#39;d like to proceed.
+Best regards,AtomStack Customer Support
+
+
+中文：
+亲爱的顾客，
+感谢您的耐心等待。我们已与团队确认[产品名]的情况：
+[根据运营反馈选择]
+-不补货：很遗憾，该产品已停产，不再供应。需要我们推荐类似替代产品吗？
+- 预售中：该产品目前支持预售，预计到货时间为[日期]。您是否需要预订？
+- 预计补货：预计该产品将于[日期]左右到货。需要我们在到货时通知您吗？
+请告知您希望如何继续。
+此致</div><div class="email-label en">📧 English Template</div><div class="email-card en">模板R-4：Draft链接购买 — 已创建好链接
+
+
+English:
+Dear [Customer Name],
+Good news! We&#39;ve created a custom order link for you:
+🔗 [购买链接]
+This link includes:
+[产品名] × [数量]
+Shipping to [国家]
+Total: [金额]
+Please note that this link may expire after [天数] days. If you have any issues or need to make changes, feel free to let us know.
+Best regards,AtomStack Customer Support
+
+
+中文：
+亲爱的[客户姓名]，
+好消息！我们已为您创建专属购买链接：
+🔗 [购买链接]
+该链接包含：
+[产品名] × [数量]
+配送至[国家]
+总计：[金额]
+请注意，该链接可能在[天数]天后过期。如有任何问题或需要修改，请随时告知。
+此致</div></div>
+<div id="p-acc-ask" class="cb">
+<div class="ic"><h3>📌 购买配件 — 解决思路</h3>
+<div style="white-space:pre-wrap;font-size:13px;line-height:1.7">购买配件 - 解决思路：
+
+1. 较专业客户 - 邮件直接告知需要购买XX配件
+2. 非专业客户 - 邮件反馈问题/寻求帮助
+
+以上两种类型客户配件购买协助流程
+1. 较专业客户购买
+- 技术表填写需求
+- 技术人员提供料号
+- 或者简单的自己判断 - 通过金蝶查询料号 - 找技术确认
+- 协助购买
+2. 费专业客户购买
+- 技术表填写客户反馈的问题
+- 排查问题(多轮沟通) - 确认问题配件
+- 技术人员提供料号
+- 协助购买
+
+以上两个两个步骤操作完成 - 参考配件购买流程完成后续步骤</div>
+</div>
+<div class="email-label cn">📧 中文模板</div><div class="email-card cn">通用模板：
+
+亲爱的顾客,
+
+感谢您联系我们，我们很乐意帮助您！
+
+为了更高效地为您服务，请提供以下信息：（根据情况删减/增加）
+- 您的订单号/购买平台
+- 您使用的AtomStack机型
+- 机器上SN码的照片
+- 展示问题的短视频
+- 您需要购买的产品或配件名称
+- 您的详细收货地址
+
+收到您提供的全部信息后，我们会第一时间为您跟进处理
+
+期待您的尽快回复，祝您生活愉快！
+
+此致</div>
+<div class="email-label en">📧 English Template</div><div class="email-card en">Dear Customer,
+
+Thank you for contacting us, and we are glad to assist you!
+
+To serve you more efficiently, please kindly provide the following information:
+- Your order number / purchasing platform
+- Your AtomStack machine model
+- A clear photo of the SN code on the machine
+- A short video showing the issue
+- The name of the product or accessory you need to purchase
+- Your detailed shipping address
+
+Once we receive all the above information, we will follow up and handle your request as soon as possible.
+
+We look forward to your prompt reply. 
+
+Wish you a nice day!
+
+Best regards,</div>
+</div>
+
+<div id="p-acc-flow" class="cb">
+<div class="ic"><h3>📌 配件购买流程</h3>
+<div style="white-space:pre-wrap;font-size:13px;line-height:1.7">配件购买流程：
+1. 技术提供料号
+2. 金蝶 - 查询库存 （一定确认了库存在报价）
+3. 料号 - 零备件报价查询登记表 - 查单价/新增查询
+3. 收集客户地址+确认配件
+4. 在国内发货报价群@肖风报价
+5. (料号单价/组装总价+物流运费）*1.05 =RMB总价
+6. 根据当日汇率换算：美金或欧元
+7. 发报价给客户 - 要求客户必须回复
+8. 客户完成付款 - 邮件回复 （参考邮件模版2）
+9. 确认订单配件购买单号+所购买配件在Shopify加NOTE 
+10. 客户配件信息同步更新到《泾泽-原子海外仓一件代发登记表》
+11. 预计1-2天同步跟踪号给客户
+
+
+特别说明：
+1. 在Shopify里添加客户配件信息便于自己/运营等查询配件内容
+2. 邮编的模版根据与客户沟通的不同阶段自行调整
+3. 告知客户报价有效期 - 库存变动/缩短客户购买时长</div>
+</div>
+<div class="email-label cn">📧 中文模板</div><div class="email-card cn">解决思路：
+邮件模板1:
+
+亲爱的顾客，
+(感谢你的邮件，现已完成排查，我会协助您后续的配件购买事项.)
+为了能更好为您配件采购提供帮助，现将相关采购流程与您同步流程详见如下：
+1. 请您确认所需配件
+配件名称：
+- 
+- 
+
+2. 请您提供详细的送货地址
+姓名：
+街道：
+城镇：
+地区：
+国家：
+邮编：
+电话：
+是否属于偏远地区或岛屿附加费区域
+
+3. 获得如上信息后我们会在1-2个工作日内为您提供报价和付款链接
+美元链接: https://atomstack.com/products/pay-for-the-price-difference-only
+欧元链接: https://atomstack.com/en-eu/products/pay-for-the-price-difference-only
+
+操作步骤：点击链接 — 加入购物车 — 修改购物车数量 — 完成付款
+
+本报价 7 天内有效
+
+4. 完成付款我们为您安排发货并同步订单跟踪号及链接 (订单完成)
+
+温馨提示：因补差价链接系统无法自动识别，请您完成付款后邮件通知，订单才能被及时处理和后续的发货安排
+
+以上信息希望对你有帮助，有任何问题欢迎随时与我们联系
+
+祝您一切顺利
+
+此致</div>
+<div class="email-label en">📧 English Template</div><div class="email-card en">Dear Valued Customer,
+
+(Thank you for your email. We have completed the investigation and will assist you with the subsequent accessory purchase.)
+
+To better help you with the accessory procurement, we are pleased to inform you of the relevant purchase process as follows:
+
+1. Please confirm the required accessories
+Accessory Names:
+- 
+- 
+
+2. Please provide your detailed shipping address
+Full Name:
+Street Address:
+Town/City:
+Region/State:
+Country:
+Postal Code:
+Phone Number:
+
+3. After receiving the above information, we will provide you with a quotation and payment link within 1-2 working days.
+USD Payment Link: https://atomstack.com/products/pay-for-the-price-difference-only
+EUR Payment Link: https://atomstack.com/en-eu/products/pay-for-the-price-difference-only
+
+Steps: Click the link - add to cart - change the number in the cart - then pay for it.
+
+This quotation is valid for 7 days.
+
+4. After completing the payment, we will arrange the shipment for you and synchronize the order tracking number and link (Order Completed).
+Kind Reminder: Since the price difference payment link cannot be automatically recognized by the system, please notify us via email after completing the payment so that your order can be processed in a timely manner and the subsequent shipment can be arranged.
+We hope the above information is helpful to you. Please feel free to contact us if you have any questions.
+
+Wish you all the best!
+
+Sincerely,</div>
+<div class="email-label cn">📧 中文模板</div><div class="email-card cn">邮件模板2: 通用模板
+
+
+
+亲爱的客户：
+
+感谢您的确认。
+
+我们已将您的信息同步至运营部门，会尽快为您安排发货。
+
+订单发货后，系统会自动发送发货通知邮件到您的邮箱，请注意查收。
+
+如有任何问题，欢迎随时与我们联系。
+
+此致
+敬礼</div>
+<div class="email-label en">📧 English Template</div><div class="email-card en">Dear Customer,
+
+Thank you for your confirmation.
+
+We have synchronized your information to the operation department and will arrange the shipment for you ASAP.
+
+When the order is shipped the system will automatically send a shipping email to your mailbox, please kindly check it.
+
+Please feel free to contact us if you have any questiions.
+
+Best regards,</div>
+</div>
+</div><!-- end d-purchase -->
+
+<!-- ══ 退货退款 详情 ══ -->
+<div id="d-refund" class="dp">
+<div class="dp-header">
+  <span style="font-size:24px">↩️</span>
+  <h2>退货退款 &amp; 换货</h2>
+  <button class="close-btn" onclick="toggle('d-refund')">✕</button>
+</div>
+<div class="note">📌 退货标签申请前须确认：货值 ≥ RMB 300，否则不予退货。退款金额优先参考官网售后政策。</div>
+<div class="tab-bar">
+  <button class="tab-btn active" onclick="showTab('r','r-p1')">产品问题·已开箱未使用</button>
+  <button class="tab-btn" onclick="showTab('r','r-p2')">产品问题·已开箱已使用</button>
+  <button class="tab-btn" onclick="showTab('r','r-c1')">客户问题·已开箱</button>
+  <button class="tab-btn" onclick="showTab('r','r-c2')">客户问题·未开箱</button>
+  <button class="tab-btn" onclick="showTab('r','r-ex')">换货流程</button>
+</div>
+<div id="r-p1" class="cb show"><div class="note info">📋 适用场景：参考如下场景：（待补充）<br>1. 机型 / 配件发错<br>2. 外观破损/变形<br>3. 有污渍/划痕/使用痕迹<br>4. 尺寸过大/过小/放不下<br><br><br><br>退货需满足：收到商品后30天内</div><div class="ic"><h3>📌 流程 / 说明</h3>
+<div style="white-space:pre-wrap;font-size:13px;line-height:1.7">
+1. 确认客户的诉求 - 安抚客户, 接受 / 理解客户
+2. 优先请客户协助排查问题（提供照片/视频）
+3. 填写技术表向技术反馈问题 / 确认真实问题
+4. 向运营反馈同步排查问题结果 - 确认退货 / 换货
+5. 完成《客服数据登记表（退款&amp;物流&amp;运营对接）》
+6. 同步信息给客户 - 申请退货标签
+7. 填写《泾泽返修预报表-原子海外仓》
+7. 完成表 - 群里《退回原子集货海外仓预报群》
+8. @郑工@肖丽萍（待定）按如下模板报备&amp;申请退标
+
+模板：
+#AtomStack11879
+返修表1112，技术沟通表2824，
+@郑楠松 郑工，麻烦帮忙更新
+退件报备&amp;申请退货标签 @肖丽萍(待定)
+
+9. 同步在领星/ERP创建退货补发 /仅退货 / 仅补发工单（以实际情况为准）
+10. 完成工单 - 在《独立站产品、订单问题解决沟通群》@钟总审批
+11. 钟总完成审批@对应运营处理审批后续（如：补发等）
+12. 肖丽萍（待定）会在《退回原子集货海外仓预报群》回复 - @你 - 提供退货标签（退货标签时效：信息完整1-2天）
+13. 将退标提供给客户 - 请客户退回后告知
+14. 客服需根据退标 / 退货单号+《泾泽返修预报表-原子海外仓》追踪退回轨迹
+15. 退件时效 - 退件没1-2周查询 - 德国海外仓客户在《原子智造&amp;海晨物流-德仓》私人所在的微信群优先查询退件到仓情况
+16. 预报表收到 - 会在《已收到数量》更新为“1” - 即为已收到退件
+17. 退件结果截图包含必要信息(如:单号) - 在《客服数据登记表（退款&amp;物流&amp;运营对接）》反馈运营
+18. 运营确认信息会在群中@你告知退款完成并会提供截图
+19. 登记《客服数据登记表（退款&amp;物流&amp;运营对接）》，特别要维护退款的数据
+20. 将退款信息同步给客户《邮件回复参考模板》 
+
+特别说明：根据客户的反应和CASE的复杂程度参考如下退款流程
+1. 完成退货 - 海外仓收到货 - 给客户退款
+2. 有退货轨迹 - 客户退回有轨迹 - 给客户退款 - 此项需提前跟运营达成共识
+3. 根据自己与客户沟通节奏 - 适当提醒官网售后手续费政策等
+4. 若产品货值低于运费/成本 - 与客户协商退款比例保留产品
+5. 退货退款过程中需要明确标注“质量问题”/“使用问题”/“运输损坏”
+6. 若使物流问题导致货品破损等 - 在发出仓库群找到服务商对接人反馈 / 索赔
+7. 多个包裹退回 - 尽量让客户压缩包裹数量 - 提供箱规再申请退标
+
+退款：给客户具体退多少 - 优先参考官网售后政策 - 以实际情况为准
+退标申请：退货标签申请前 - 必须确认货值大于等于RMB300，否则不予退货
+</div></div>
+<div class="email-label cn">📧 中文模板</div><div class="email-card cn">模板1：信息收集与排查请求适用节点：步骤1-2
+
+Subject: Regarding Your Request - Order #{订单号}
+
+Dear Customer,
+Thank you for contacting us. We understand your concern and apologize for any inconvenience caused.
+To help us better understand and resolve the issue, could you please provide the following information:
+-Your order number
+-A detailed description of the problem you are experiencing
+-Clear photos or a video showing the issue (if applicable)
+-Your machine&#39;s serial number (SN) - found on the device
+This information will help our technical team assess the situation and provide the best solution for you.
+We appreciate your patience and cooperation.
+Best regards,</div><div class="email-label en">📧 English Template</div><div class="email-card en">模板2：技术确认后告知客户适用节点：步骤4（技术判定后确认退货/换货）
+
+
+Subject: Return/Replacement Confirmed - Order #{订单号}
+
+Dear Customer,
+Thank you for your patience. After our technical team reviewed the information provided, we have confirmed that your issue qualifies for a return/replacement.
+We will proceed with the next steps and apply for a return label for you. We will send it to you as soon as it is ready.
+If you have any questions, please feel free to contact us.
+Best regards,
+
+
+模板3：申请退货标签通知适用节点：步骤5-10（等待海外仓提供标签）
+
+Subject: Return Label Request in Progress - Order #{订单号}
+
+Dear Customer,
+We are processing your return request. We have submitted an application for a return label to our overseas warehouse.
+The return label will be provided by our warehouse. We will send it to you as soon as it is ready.
+Thank you for your patience.
+Best regards,</div><div class="email-label cn">📧 中文模板</div><div class="email-card cn">模板4：发送退货标签适用节点：步骤11
+
+Subject: Return Label for Order #{订单号}
+
+Dear Customer,
+
+Your return label is ready. Please find the details below:
+Return Label / Shipping Instructions:{粘贴退货标签或附件说明}
+Important Notes:
+Please use this label to return the product
+Pack the item securely with all original accessories
+Once shipped, please reply to this email with the tracking number
+Keep your return receipt for reference
+After we receive and inspect the returned item, we will process your refund/replacement.
+If you have any questions, please contact us.
+Best regards,</div><div class="email-label en">📧 English Template</div><div class="email-card en">模板5：追踪退货提醒适用节点：步骤12（如客户已退回但需确认）
+
+Subject: Return Tracking Confirmation - Order #{订单号}
+
+Dear Customer,
+Thank you for shipping the item back. Could you please confirm the return tracking number so we can monitor the delivery status?
+This will help us process your refund/replacement more efficiently.
+Best regards,
+
+模板6：确认收到退件适用节点：步骤13-14
+
+Subject: Return Received - Order #{订单号}
+
+Dear Customer,
+We confirm that we have received your returned product for order #{订单号}.
+We are now processing your refund/replacement. We will update you shortly.
+Thank you for your patience.
+Best regards,</div><div class="email-label cn">📧 中文模板</div><div class="email-card cn">模板7：退款确认适用节点：步骤16（退款场景）
+
+Subject: Refund Processed - Order #{订单号}
+
+Dear Customer,
+We are pleased to inform you that your refund for order #{订单号} has been processed.
+Refund Details:
+Refund Amount: {金额}
+Refund Method: Original payment method
+Processing Time: 3-5 business days (depending on your bank)
+You should see the refund in your account within the next few business days.
+If you have any questions, please feel free to contact us.
+Best regards,
+
+
+模板8：换货/补发确认适用节点：步骤16（换货/补发场景）
+
+Subject: Replacement Shipped - Order #{订单号}
+
+Dear Customer,
+We are pleased to inform you that your replacement for order #{订单号} has been shipped.
+Tracking Information:
+Tracking Number: {跟踪号}
+Tracking Link: {链接}
+You can use the link above to monitor the shipment status.
+If you have any questions, please feel free to contact us.
+Best regards</div><div class="email-label en">📧 English Template</div><div class="email-card en">特殊场景模板
+
+模板A：周末无法处理提醒适用节点：周末提交申请后
+
+Subject: Your Request is Being Processed - Order #{订单号}
+
+Dear Customer,
+We have received your request and submitted it to the relevant department.
+Since today is the weekend, the process cannot be completed immediately. We expect to have an update on the next business day.
+Thank you for your patience and understanding.
+Best regards,Winnie ZAtomStack Customer Service Team
+
+
+模板B：退货选项确认适用节点：让客户选择退货类型
+
+Subject: Please Confirm Your Preference - Order #{订单号}
+
+Dear Customer,
+We are processing your request. Please confirm which option you prefer:
+Option 1: Return for Refund OnlyWe will apply for a return label. Once we receive the returned package, we will process your refund.
+Option 2: Return and ReplacementWe will apply for a return label. Once we receive a return tracking number showing the package has been shipped back, we will arrange the replacement.
+The return label will be provided by our overseas warehouse. We will send it to you as soon as it is ready.
+Please reply to confirm which option you prefer.
+Thank you for your cooperation.
+Best regards,</div></div><div id="r-p2" class="cb "><div class="note info">📋 适用场景：参考如下场景：（待补充）<br>1. 核心部件故障（主板/电机/激光器等）<br>2. 配件故障（旋转/气泵/摄像头等）<br>3. 使用中频繁出现故障/报错<br>4. 使用时出现异常噪音<br>5. 使用时冒烟或有异常气味<br>6. 无法开机/无法出激光/无法移动等<br>7. 功率/速度/精度达不到要求<br>8. 雕刻/切割效果不满意<br>9. 操作复杂/学不会<br>10. 工作范围不满足需求<br>11. 无法处理特定材料<br>12. 功能与预期不符<br>13. 与现有设备不兼容<br>14. 与宣传描述不符<br><br><br><br><br>退货需满足：收到商品后30天内</div><div class="ic"><h3>📌 流程 / 说明</h3>
+<div style="white-space:pre-wrap;font-size:13px;line-height:1.7">
+技术型客户 / 有专业度 / 清晰描述产品的问题
+1. 确认客户的诉求 - 安抚客户, 接受/理解客户
+2. 客户技术问题描述清晰 - 填写《技术沟通登记表》 
+3. 把技术需求或反馈正确理解并同步给客户 - 等客户回复/反馈
+4. 技术沟通超过2轮时，可考虑通过视频会议协助判定问题
+5. 技术结论优先考虑给客户补发代替退货 / 换货 - 需与客户达成共识
+6. 若情况复杂提前与部门负责人确认 - 若补发无法解决的问题是否可以申请退货 - 以实际情况为准
+7. 若客户不同意补发配件 / 不配合 - 优先与部门负责人协商解决方案 - 同步协商结论或解决方案给运营 / 通知或确认下一步解决方案
+8. 退货流程参考已开箱未使用- 退货流程
+
+其他各类型客户 / 描述简单 / 信息不完整 / 无法第一时间判断问题
+1. 确认客户的诉求 - 安抚客户, 接受/理解客户
+2. 优先请客户协助排查问题（提供详细描述 / 照片 / 视频等）- 无需填写技术表格
+3. 等客户回复进一步问题描述 / 提供素材 - 填写《技术沟通登记表》
+4. 技术沟通超过2轮 - 可以考虑视频会议协助判定问题
+5. 技术结论优先考虑给客户补发代替退货 / 换货 - 需与客户达成共识
+6. 若情况复杂给客户回复前优先与部门负责人确认 - 若补发无法解决的问题 - 根据实际客户请客户再决定是否申请 换货 / 退货 - 以实际情况为准
+7. 若客户不同意补发配件 / 不配合 - 优先与部门负责人协商解决方案 - 同步协商结论或解决方案给运营 / 通知或确认下一步解决方案
+8. 退货流程参考已开箱未使用 - 退货流程
+ 
+
+
+特别说明：根据客户的反应和CASE的复杂程度参考如下退款流程
+1. 完成退货 - 海外仓收到货 - 给客户退款
+2. 有退货轨迹 - 客户退回有轨迹 - 给客户退款 - 此项需提前跟运营达成共识
+3. 根据自己与客户沟通节奏 - 适当提醒官网售后手续费政策等
+4. 若产品货值低于运费/成本 - 与客户协商退款比例保留产品
+5. 退货退款过程中需要明确标注“质量问题”/“使用问题”/“运输损坏”
+6. 若使物流问题导致货品破损等 - 在发出仓库群找到服务商对接人反馈 / 索赔
+7. 多个包裹退回 - 尽量让客户压缩包裹数量 - 提供箱规再申请退标
+
+退款：给客户具体退多少 - 优先参考官网售后政策 - 以实际情况为准
+退标申请：退货标签申请前 - 必须确认货值大于等于RMB300，否则不予退货
+</div></div>
+<div class="email-label cn">📧 中文模板</div><div class="email-card cn">类型A：技术型客户】
+模板A1：确认收到技术问题描述适用节点：步骤1-2
+
+Subject: Technical Support - Order #{订单号}
+
+Dear Customer,
+Thank you for your detailed description of the issue. We understand your concern and appreciate the technical information you provided.
+We have recorded your case and forwarded it to our technical team for analysis. We will get back to you with a solution as soon as possible.
+If you have any additional information to share, please feel free to reply to this email.
+Thank you for your patience.
+Best regards,
+
+模板A2：同步技术反馈给客户适用节点：步骤3
+
+Subject: Technical Feedback - Order #{订单号}
+
+Dear Customer,
+Thank you for waiting. 
+Our technical team has reviewed your case and provided the following feedback:{技术反馈}
+Please try the suggested steps and let us know the results. If the issue persists, please provide additional information so we can further assist you.
+Best regards,</div><div class="email-label en">📧 English Template</div><div class="email-card en">类型B：其他类型客户
+
+模板B1：信息收集请求适用节点：步骤2
+
+Subject: Regarding Your Inquiry - Order #{订单号}
+
+Dear Customer,
+Thank you for contacting us. We understand your concern and would like to help resolve the issue.
+To better understand and diagnose the problem, could you please provide the following information:
+A detailed description of the issue (what happened and when)
+Clear photos or a video showing the problem
+Your machine&#39;s serial number (SN) - found on the device
+Any error messages or unusual behavior you noticed
+This information will help our technical team provide an accurate solution.
+Thank you for your cooperation.
+Best regards,
+
+
+模板B2：收到完整信息后确认适用节点：步骤3（收到客户补充信息后）
+
+Subject: Information Received - Order #{订单号}
+
+Dear Customer,
+Thank you for providing the additional information and materials.
+We have recorded your case and forwarded it to our technical team for analysis. We will get back to you with a solution as soon as possible.
+Best regards,Winnie ZAtomStack Customer Service Team</div><div class="email-label cn">📧 中文模板</div><div class="email-card cn">【通用模板：两类客户共用】
+
+
+模板C1：建议视频会议协助适用节点：步骤4（技术沟通超过3轮）
+
+Subject: Video Call Assistance - Order #{订单号}
+
+Dear Customer,
+Thank you for your continued patience. 
+We have been working on your case and would like to offer a video call to assist with troubleshooting directly.
+A video call would allow us to:
+See the issue in real-time
+Guide you through the troubleshooting steps
+Provide immediate solutions
+Could you please let us know your available time and preferred platform (Zoom, Google Meet, etc.)? We will arrange the session accordingly.
+Best regards,</div><div class="email-label en">📧 English Template</div><div class="email-card en">【通用模板：两类客户共用】
+
+模板C1：建议视频会议协助适用节点：步骤4（技术沟通超过3轮）
+
+Subject: Video Call Assistance - Order #{订单号}
+
+Dear Customer,
+Thank you for your continued patience. We have been working on your case and would like to offer a video call to assist with troubleshooting directly.
+A video call would allow us to:
+See the issue in real-time
+Guide you through the troubleshooting steps
+Provide immediate solutions
+Could you please let us know your available time and preferred platform (Zoom, Google Meet, etc.)? We will arrange the session accordingly.
+Best regards,Winnie ZAtomStack Customer Service Team
+
+
+模板C2：建议补发配件方案适用节点：步骤5
+
+Subject: Solution Proposal - Order #{订单号}
+
+Dear Customer,
+Thank you for your patience. Based on our technical analysis, we believe the issue can be resolved by replacing the following part(s):
+Replacement Part(s): {配件名称}
+We would like to send you this replacement at no cost. Could you please confirm your shipping address so we can arrange the shipment?
+If you have any concerns about this solution, please let us know and we will discuss other options.
+Best regards,</div><div class="email-label cn">📧 中文模板</div><div class="email-card cn">模板C3：客户不同意补发，协商退货适用节点：步骤7
+
+Subject: Alternative Solution - Order #{订单号}
+
+Dear Customer,
+We understand that the replacement option may not meet your expectations. We have discussed your case with our team and would like to offer an alternative solution.
+We can proceed with a return and refund for your order. Please let us know if this is acceptable to you, and we will guide you through the return process.
+Thank you for your understanding.
+Best regards,Winnie ZAtomStack Customer Service Team
+
+
+模板C4：补发配件已发货适用节点：步骤6（补发场景）
+
+Subject: Replacement Shipped - Order #{订单号}
+
+Dear Customer,
+We are pleased to inform you that the replacement part(s) for your order has been shipped.
+Tracking Information:
+Tracking Number: {跟踪号}
+Tracking Link: {链接}
+Please let us know if the replacement resolves the issue. If you need any further assistance, we are here to help.
+Best regards,</div><div class="email-label en">📧 English Template</div><div class="email-card en">模板C5：补发后跟进适用节点：步骤6（补发后确认问题是否解决）
+
+Subject: Follow-up on Replacement - Order #{订单号}
+
+Dear Customer,
+We hope the replacement part(s) you received is working well.
+Could you please let us know if the issue has been resolved? If you are still experiencing problems, please reply with the details so we can continue to assist you.
+Thank you for your cooperation.
+Best regards,</div></div><div id="r-c1" class="cb "><div class="note info">📋 适用场景：参考如下场景：（待补充）<br>1. 无理由 / 不想要<br></div><div class="ic"><h3>📌 流程 / 说明</h3>
+<div style="white-space:pre-wrap;font-size:13px;line-height:1.7">
+1. 确认客户的诉求 - 感谢客户反馈, 询问退货具体原因
+2. 根据客户回复判断退货属性
+3. 若客户为非产品问题希望退货 - 通过独立站官网+运营群历史记录查询等进一步确认订单是否满足退货条件（货值低于RMB300或低于运费不退）
+4. 向客户询问 / 收集信息 如产品情况 / 是否开箱等 - 告知客户已为其提交退货申请 - 等待审批
+5. 与运营同步 / 协商 / 退货情况反馈 - 看运营是否有其他补偿政策提供给客户 - 或可能不退货（如退50%保留产品 / 积分补偿等）
+6. 若协商结果同意给客户退货 - 需向客户提供官网退货退款政策链接 - 等客户确认接受（建议：不具体说明退款金额避免争议）- 根据实际情况需要灵活判断
+7. 若客户接受并同意 - 为客户申请退货标签
+8. 填写《泾泽返修预报表-原子海外仓》
+9. @郑工@肖丽萍（待定）按如下模板报备&amp;申请退标
+
+模板：
+#AtomStack11879
+返修表1112，技术沟通表2824，
+@郑楠松 郑工，麻烦帮忙更新
+退件报备&amp;申请退货标签 @肖丽萍(待定)
+
+10. 同步在领星/ERP创建退货补发 /仅退货 / 仅补发工单（以实际情况为准）
+11. 完成工单 - 在《独立站产品、订单问题解决沟通群》@钟总审批
+12. 钟总完成审批@对应运营处理审批后续（如：补发等）
+13. 肖丽萍（待定）会在《退回原子集货海外仓预报群》回复 - @你 - 提供退货标签（退货标签时效：信息完整1-2天）
+14. 将退标提供给客户 - 请客户退回后告知
+15. 客服需根据退标 / 退货单号+《泾泽返修预报表-原子海外仓》追踪退回轨迹
+16. 退件时效 - 退件没1-2周查询 - 德国海外仓客户在《原子智造&amp;海晨物流-德仓》私人所在的微信群优先查询退件到仓情况
+17. 预报表收到 - 会在《已收到数量》更新为“1” - 即为已收到退件
+18. 退件结果截图包含必要信息(如:单号) - 在《客服数据登记表（退款&amp;物流&amp;运营对接）》反馈运营
+19. 运营确认信息会在群中@你告知退款完成并会提供截图
+20. 登记《客服数据登记表（退款&amp;物流&amp;运营对接）》，特别要维护退款的数据
+21. 将退款信息同步给客户《邮件回复参考模板》 
+
+
+特别说明：根据客户的反应和CASE的复杂程度参考如下退款流程
+1. 完成退货 - 海外仓收到货 - 给客户退款
+2. 有退货轨迹 - 客户退回有轨迹 - 给客户退款 - 此项需提前跟运营达成共识
+3. 根据自己与客户沟通节奏 - 适当提醒官网售后手续费政策等
+4. 若产品货值低于运费/成本 - 与客户协商退款比例保留产品
+5. 退货退款过程中需要明确标注“质量问题”/“使用问题”/“运输损坏”
+6. 若使物流问题导致货品破损等 - 在发出仓库群找到服务商对接人反馈 / 索赔
+7. 多个包裹退回 - 尽量让客户压缩包裹数量 - 提供箱规再申请退标
+
+退款：给客户具体退多少 - 优先参考官网售后政策 - 以实际情况为准
+退标申请：退货标签申请前 - 必须确认货值大于等于RMB300，否则不予退货</div></div>
+<div class="email-label cn">📧 中文模板</div><div class="email-card cn">模板1：确认诉求（Step 1）
+
+
+Dear Customer,
+
+We hope this email finds you well.
+
+We understand you wish to apply for a return and refund for order #AtomStack12900. 
+
+To process your request smoothly, we would like to confirm two key details with you:
+
+1.Could you please share the specific reason for your return‑and‑refund request? 
+
+Your feedback will help us better handle your case and improve our products and services going forward.
+
+2.In accordance with our official after‑sales policy, relevant administrative fees will be charged for this return‑and‑refund application. Please refer to the link below for full policy details: http://atomstack.com/en-eu/pages/after-sales-policy
+
+If you confirm proceeding with the return, please provide real‑life photos of the received product (or unopened package). We will immediately notify our relevant team and prepare a detailed follow‑up solution for you. Once we receive and inspect the returned product, we will process your refund promptly.
+
+We highly value every customer’s experience and respect your final decision. 
+
+We look forward to your reply and will respond to any further questions you may have in a timely manner.
+
+Best regards,
+
+尊敬的顾客：
+感谢您的邮件。
+我们了解到您希望为订单   #AtomStack12900  申请退货退款，为顺利推进您的诉求，有两点核心信息想与您沟通：
+1.可否告知您申请退货退款的具体原因？您的反馈将帮助我们更好地处理本次诉求，同时优化后续的产品与服务。
+2.根据我司官方售后政策，本次退货退款申请将产生相应手续费用，政策详情请您参考此链接：http://atomstack.com/en-eu/pages/after-sales-policy
+若您确认仍要退货，麻烦您提供所收产品（或未拆封包裹）的实拍图，我们将立即同步相关部门，稍后为您提供退货退款流程。待我们收到退回产品并完成质检后，会第一时间为您办理退款。
+我们高度重视每一位客户的体验，也尊重您的最终决定，静候您的回复，也会及时解答您的所有疑问。
+此致
+若您确认仍要退货，麻烦您提供所收产品（或未拆封包裹）的实拍图，我们将立即同步相关部门，为您制定详细的后续处理方案。待我们收到退回产品并完成质检后，会第一时间为您办理退款。
+我们高度重视每一位客户的体验，也尊重您的最终决定，静候您的回复，也会及时解答您的所有疑问。
+此致</div><div class="email-label en">📧 English Template</div><div class="email-card en">模板2：收集信息 + 告知已提交申请（Step 4）
+
+Dear Customer,
+Thank you for providing the details. We&#39;ve submitted your return request and it&#39;s currently pending approval.
+Before we proceed, could you please confirm:
+Whether the product has been opened
+The current condition of the product and packaging
+[可选] Photos of the product and packaging
+We&#39;ll update you as soon as we have the result.
+Best regards,
+
+
+亲爱的顾客，
+感谢您提供详细信息。我们已为您提交退货申请，目前正在等待审批。
+在继续之前，请您确认以下信息：
+产品是否已拆封
+产品及包装的当前状况
+[可选] 产品和包装的照片
+有结果后我们会第一时间通知您。
+此致</div><div class="email-label cn">📧 中文模板</div><div class="email-card cn">模板3：提供退货政策 + 等待确认（Step 6）
+
+
+Dear Customer,
+Your return request has been approved. Before we move forward, please review our return and refund policy here:
+https://atomstack.com/pages/return-refund-policy
+[根据实际情况补充，以下为可选项]
+A [10%/15%/20%/30%] service fee will apply based on the product condition
+Return shipping cost will be at your expense
+The refund will be processed within 2-7 business days after we receive the returned item
+Bank processing fees (2.5%-6%) may apply
+If you accept the above terms, please confirm and we&#39;ll arrange the return label for you.
+Best regards,
+
+
+
+亲爱的顾客，
+您的退货申请已获批准。在继续之前，请查阅我们的退货退款政策：
+https://atomstack.com/pages/return-refund-policy
+[根据实际情况补充，以下为可选项]
+根据产品状况，将收取[10%/15%/20%/30%]的手续费
+退货运费需由您承担
+我们收到退件后将在2-7个工作日内处理退款
+可能会产生银行手续费（2.5%-6%）
+如您接受以上条款，请确认，我们将为您安排退货标签。
+此致</div><div class="email-label en">📧 English Template</div><div class="email-card en">模板4：提供退货标签（Step 13）
+
+
+Dear Customer,
+Your return label is ready. Please find it below/attached:
+Please pack the item securely in its original packaging and ship it back using the label provided. Once shipped, kindly let us know the tracking number so we can follow up on the delivery.
+Best regards,
+
+
+亲爱的顾客，
+您的退货标签已准备好，请查看下方/附件：
+请将产品用原包装妥善打包，并使用该标签寄回。发货后请告知我们物流单号，以便我们跟踪退件状态。
+此致</div><div class="email-label cn">📧 中文模板</div><div class="email-card cn">模板5：退款确认（Step 19）
+
+
+Dear Customer,
+We&#39;re wriing to confirm that your refund has been processed. Here are the details:
+（Refund amount: [金额]
+Refund method: [原支付方式]）
+Processing time: 2-7 business days (depending on your bank)
+If you don&#39;t receive the refund within the expected timeframe, please feel free to contact us and we&#39;ll look into it.
+Thank you for your patience throughout this process.
+Best regards,AtomStack Customer Support
+
+
+
+亲爱的顾客，
+我们写信确认您的退款已处理完成，详情如下：
+（退款金额：[金额]
+退款方式：[原支付方式]）
+到账时间：2-7个工作日（取决于您的银行）
+如在预期时间内未收到退款，请随时联系我们，我们会跟进处理。
+感谢您在整个过程中的耐心配合。
+此致</div></div><div id="r-c2" class="cb "><div class="note info">📋 适用场景：参考如下场景：（待补充）<br>1. 无理由 / 不想要<br>2. 礼物对象不喜欢<br>3. 拍错型号 / 规格 / 版本<br>4. 等不及 / 发货太慢<br>5. 误操作重复购买</div><div class="ic"><h3>📌 流程 / 说明</h3>
+<div style="white-space:pre-wrap;font-size:13px;line-height:1.7">
+常规操作流程：
+参考：客户问题 - 已开箱流程
+
+特别操作流程：
+场景4-1. 等不及/发货太慢
+1. 收到客户反馈 - 优先查看客户订单发货状态 - 领星+独立站
+2. 若已发出 - 则订单无法拦截 - 同步信息给运营《独立站产品、订单问题解决沟通群》
+3. 需告知客户订单已发出 - 询问客户退货原因
+4. 若客户反馈原因 - 同步并确认情况给运营 - 回复客户请客户“拒收“
+5. 若客户拒收成功 - 包裹将退回发货仓 
+6. 登记在表格《泾泽易刻海外仓退件表 填写后@徐宝贤报备》
+7. 报备《退回原子集货海外仓预报群》@徐宝贤报备
+6. 若客户未拒收成功 - 即收到包裹 - 为客户申请退标 - 参考如上流程
+
+场景4-2. 等不及/发货太慢
+或者可能
+1. 客户订单没有发货 - 即包裹状态未发出
+2. 立即到《独立站产品、订单问题解决沟通群》提供订单编号 - 要求停止发货
+3. 跟客户沟通后 - 了解情况 - 确认客户不要/是否需要挽留
+4. 客服同步信息给客户：手续费+官网售后政策链接
+5. 客户接受手续费 - 同步信息给运营为客户退款
+6. 若完成退款后 - 同步信息告知客户银行处理时效（3-7个天/工作日）
+7. 若客户不接受手续费 - 需进一步判断客户诉求 - (或根据各国政策/欧盟政策) 与客户协商
+8. 根据客户的情况/态度进行判断是否需要向上级请示特批
+
+
+场景5-1. 误操作重复购买
+1. 收到客户反馈 - 优先查看客户订单发货状态 - 核实情况 - 领星+独立站
+2. 若确认客户是购买重复 - 同步/反馈信息给运营《独立站产品、订单问题解决沟通群》
+3. 确认可为客户退款 - 同步信息给客户 - 告知退款时间及手续费
+4. 若客户订单已发出 - 告知客户“拒收” - 后续操作参考如上流程
+5. 若客户收到了产品 - 为客户申请退标 - 后续操作参考如上流程
+
+
+特别说明：根据客户的反应和CASE的复杂程度参考如下退款流程
+1. 完成退货 - 海外仓收到货 - 给客户退款
+2. 有退货轨迹 - 客户退回有轨迹 - 给客户退款 - 此项需提前跟运营达成共识
+3. 根据自己与客户沟通节奏 - 适当提醒官网售后手续费政策等
+4. 若产品货值低于运费/成本 - 与客户协商退款比例保留产品
+5. 退货退款过程中需要明确标注“质量问题”/“使用问题”/“运输损坏”
+6. 若使物流问题导致货品破损等 - 在发出仓库群找到服务商对接人反馈 / 索赔
+7. 多个包裹退回 - 尽量让客户压缩包裹数量 - 提供箱规再申请退标
+
+退款：给客户具体退多少 - 优先参考官网售后政策 - 以实际情况为准
+退标申请：退货标签申请前 - 必须确认货值大于等于RMB300，否则不予退货</div></div>
+<div class="email-label cn">📧 中文模板</div><div class="email-card cn">通用模板1. 订单已发出 + 了解原因
+
+
+Dear Customer,
+
+Thank you for your email.
+
+We understand that you would like to apply for a return and refund for order #AtomStack12345. 
+
+To smoothly proceed with your request, we would like to confirm two key points with you:
+1. Could you please let us know the specific reason for your return and refund request? Your feedback will help us better handle your request and optimize our products and services in the future.
+
+2. According to our official after-sales policy, a handling fee will be charged for this return and refund application. Please refer to the link below for detailed policy information:
+http://atomstack.com/en-eu/pages/after-sales-policy
+
+If you still confirm to proceed with the return, please kindly provide real photos of the received product or the unopened package. 
+
+We will immediately synchronize with the relevant department to formulate a detailed follow-up solution for you. The refund will be processed only after our overseas warehouse confirms receipt and completes quality inspection of the returned item.
+
+We highly value every customer’s user experience and fully respect your final decision. We look forward to your reply and will promptly answer any questions you may have.
+
+Best regards,
+
+
+尊敬的顾客：
+感谢您的邮件。
+我们了解到您希望为订单#AtomStack12345申请退货退款。
+
+为顺利推进您的诉求，有两点核心信息想与您沟通：
+1. 可否告知您申请退货退款的具体原因？您的反馈将帮助我们更好地处理本次诉求，同时优化后续产品与服务。
+2. 根据我司官方售后政策，本次退货退款申请将产生相应手续费用，政策详情请您参考此链接：http://atomstack.com/en-eu/pages/after-sales-policy 
+
+若您确认仍要退货，麻烦您提供所收产品（或未拆封包裹）的实拍图，我们将立即同步相关部门，为您制定详细的后续处理方案。退回产品需海外仓确认收到并完成质检后为您办理退款。
+
+我们高度重视每一位客户的使用体验，也充分尊重您的最终决定。静候您的回复，我们也会及时为您解答所有疑问。
+
+此致</div><div class="email-label en">📧 English Template</div><div class="email-card en">通用模板2. 请客户拒收
+
+
+Dear Customer,
+Since your package is already in transit, it cannot be canceled halfway.
+You may simply refuse the parcel upon delivery, and the courier will automatically send it back to our overseas warehouse.
+Please kindly let us know once you have successfully rejected the delivery, and we will follow up and arrange all subsequent procedures for you.
+Best regards,
+
+
+
+亲爱的顾客，
+由于您的包裹目前已在运输途中，无法中途取消发货。
+您可在快递派送时直接拒收包裹，快递方会自动将包裹原路退回至我们海外仓。
+麻烦您告知我们是否可以成功拒收，我们将为您全程跟进并安排后续所有流程。
+此致</div></div><div id="r-ex" class="cb "><div class="note info">📋 适用场景：换货问题与退货退款类似：（待补充）<br>1. 客户买错需要换货<br>2. 仓库发错产品需要换货<br>3. 产品升级需要换货<br></div><div class="ic"><h3>📌 流程 / 说明</h3>
+<div style="white-space:pre-wrap;font-size:13px;line-height:1.7">换货操作流程&amp;说明：目前常见情况就2种，后续待补充
+1. 退回产品 - 仓库收到产品 - 补发产品
+2. 退回产品 - 有退回轨迹 - 同步补发产品
+
+
+客户买错换货
+1. 确认客户的诉求 - 向客户了解情况
+2. 确认产品状态，是否开箱 - 请客户提供照片
+3. 开箱 / 未开箱退回前需确认货值 
+4. 申请退货标签 - 详细流程参考退货退款流程
+
+根据客户情况判断操作：
+1. 海外仓收到退件 - 给客户发补差价 / 退差价
+2. 给客户补发对应需求产品
+3. 产品已退回 - 有退货轨迹
+4. 同时给客户发补差价/退差价
+5. 同时i给客户同步补发对应需求产品
+
+
+
+仓库发错产品需要换货
+1. 确认客户诉求 - 请客户耐心等待我们进一步核实
+2. 核实客户反馈情况
+- 根据客户的订单编号 - 在领星ERP确认发货仓
+- 把客户的运单号/跟踪号 - 发在对应海外仓群 - @服务商对接人反馈情况
+- 欧洲海外仓4PX沟通群 - 吴志文 - 徐宝贤
+- 美国海外仓跨越猫 - Lina/王亚琴 - 徐宝贤
+- 卓飞英国仓 - 客服-裕裕/春春
+- 易刻海外谷仓 - 刘宏爽 - 徐宝贤
+3. 若确认发错
+- 与运营协商是否退货补发 / 保留补发 - 以实际产品和客户情况为准
+
+4. 若没有发错货
+- 向客户确认是否是买错 - 是否更换等 - 以实际情况为准
+
+
+产品升级需要换货（多为主机）
+1. 确认客户诉求 - 确认客户升级产品
+2. 若有必要需要技术介入协助判断 - 换货是否能满足客户需求
+3. 需要给客户退回产品 - 提前需要确认是否开箱 - 补差价/退差价
+4. 为客户申请退货标签
+5. 补发前 - 必须确认产品信息的准确性
+何时补发 - 以实际情况为准来判断
+- 产品退回仓库收到后 - 补发 - 提前跟客户定位说明时效
+- 产品退回有轨迹 - 补发</div></div>
+</div></div><!-- end d-refund -->
+<!-- ══ 创建工单 详情 ══ -->
+<div id="d-ticket" class="dp">
+<div class="dp-header">
+  <span style="font-size:24px">🎫</span>
+  <h2>创建工单（领星 ERP）</h2>
+  <button class="close-btn" onclick="toggle('d-ticket')">✕</button>
+</div>
+<div class="note info">💡 适用于领星ERP系统中创建售后工单，包括退货退款、仅退货、仅补发等类型。</div>
+<div class="tab-bar">
+  <button class="tab-btn active" onclick="showTab('t','t-rr')">退货退款</button>
+  <button class="tab-btn" onclick="showTab('t','t-ro')">仅退货</button>
+  <button class="tab-btn" onclick="showTab('t','t-rs')">仅补发</button>
+  <button class="tab-btn" onclick="showTab('t','t-rb')">退货补发</button>
+</div>
+<div id="t-rr" class="cb show"><div class="ic"><h3>📋 操作步骤</h3><div class="step-item"><div class="step-num">1</div><div class="step-text">在领星ERP中 - 订单管理 - 单号/客户邮箱找到订单</div></div><div class="step-item"><div class="step-num">2</div><div class="step-text">找到需要退货退款的对应产品 - 更多操作 - 创建工单</div></div><div class="step-item"><div class="step-num">3</div><div class="step-text">创建工单后 - 进入“添加售后工单”</div></div><div class="step-item"><div class="step-num">4</div><div class="step-text">标 * 为必填项，否则无法成功创建工单</div></div><div class="step-item"><div class="step-num">5</div><div class="step-text">售后原因 - 根据客户的实际情况进行选择<br>物流类型默认“不可编辑”</div></div><div class="step-item"><div class="step-num">6</div><div class="step-text">工单屏幕右上角，售后类型选择”退货退款“</div></div><div class="step-item"><div class="step-num">7</div><div class="step-text">非服务商退件 - 仅/只能选择 - 虚拟二仓支持售后工单结算使用</div></div><div class="step-item"><div class="step-num">8</div><div class="step-text">跟踪号可以先随意填写12345即可 - 另外需要备注清楚退货原因</div></div><div class="step-item"><div class="step-num">9</div><div class="step-text">服务商退件 - 不选择 - 默认系统匹配的仓库即可</div></div><div class="step-item"><div class="step-num">10</div><div class="step-text">退货退款需要添加 - 1.售后信息 - 2.退款信息</div></div><div class="step-item"><div class="step-num">11</div><div class="step-text">添加商品 - 售后信息</div></div><div class="step-item"><div class="step-num">12</div><div class="step-text">售后信息 - 售后数量不能高于订购数量</div></div><div class="step-item"><div class="step-num">13</div><div class="step-text">退款金额 - 根据客户情况匹配官网比例手续费+运费(可找肖丽萍-待定询问运费）</div></div><div class="step-item"><div class="step-num">14</div><div class="step-text">完成全部信息 - 仔细检查一遍 - 创建并提交 - 售后工单创建完成</div></div></div></div><div id="t-ro" class="cb "><div class="ic"><h3>📋 操作步骤</h3><div class="step-item"><div class="step-num">1</div><div class="step-text">步骤1-4参考“退货退款”</div></div><div class="step-item"><div class="step-num">2</div><div class="step-text">售后类型 - 选择 - 仅退货</div></div><div class="step-item"><div class="step-num">3</div><div class="step-text">跟踪号 - 随机输入如123445即可</div></div><div class="step-item"><div class="step-num">4</div><div class="step-text">售后原因 - 根据客户实际情况进行选择 - 截图仅供参考非必要选择</div></div><div class="step-item"><div class="step-num">5</div><div class="step-text">售后退货原因 - 根据客户的实际情况说明清楚</div></div><div class="step-item"><div class="step-num">6</div><div class="step-text">添加商品 - 只有一项售后信息 - 注意无退款信息</div></div><div class="step-item"><div class="step-num">7</div><div class="step-text">完成全部信息 - 仔细检查一遍 - 创建并提交 - 售后工单创建完成</div></div></div></div><div id="t-rs" class="cb "><div class="ic"><h3>📋 操作步骤</h3><div class="step-item"><div class="step-num">1</div><div class="step-text">步骤1-4参考“退货退款”</div></div><div class="step-item"><div class="step-num">2</div><div class="step-text">售后类型 - 选择 - 仅补发</div></div><div class="step-item"><div class="step-num">3</div><div class="step-text">补发原因 - 根据客户实际情况进行选择 - 截图仅供参考非必要选择</div></div><div class="step-item"><div class="step-num">4</div><div class="step-text">售后退货原因 - 根据客户的实际情况说明清楚</div></div><div class="step-item"><div class="step-num">5</div><div class="step-text">添加商品 - 注意新增了补发信息选项</div></div></div></div>
+<div id="t-rb" class="cb">
+<div class="ic"><h3>📋 退货补发说明</h3>
+<p>退货补发是退货与补发的组合流程：</p>
+<div class="step-item"><div class="step-num">1</div><div class="step-text">参考"退货退款"流程创建退货工单</div></div>
+<div class="step-item"><div class="step-num">2</div><div class="step-text">确认退件入仓后，在原订单上创建补发工单</div></div>
+<div class="step-item"><div class="step-num">3</div><div class="step-text">补发工单中金额填写"0"</div></div>
+<div class="step-item"><div class="step-num">4</div><div class="step-text">备注中详细说明退货原因及补发产品信息</div></div>
+<div class="step-item"><div class="step-num">5</div><div class="step-text">在《独立站产品、订单问题解决沟通群》@钟总审批</div></div>
+</div>
+</div>
+</div><!-- end d-ticket -->
+
+<!-- ══ 物流相关 详情 ══ -->
+<div id="d-logistics" class="dp">
+<div class="dp-header">
+  <span style="font-size:24px">🚚</span>
+  <h2>物流相关</h2>
+  <button class="close-btn" onclick="toggle('d-logistics')">✕</button>
+</div>
+<div class="tab-bar">
+  <button class="tab-btn active" onclick="showTab('l','l-miss')">未妥投</button>
+  <button class="tab-btn" onclick="showTab('l','l-damage')">包裹破损</button>
+  <button class="tab-btn" onclick="showTab('l','l-delivery')">配送问题</button>
+  <button class="tab-btn" onclick="showTab('l','l-sign')">签收异常</button>
+  <button class="tab-btn" onclick="showTab('l','l-reject')">退件/拒收</button>
+  <button class="tab-btn" onclick="showTab('l','l-freight')">运费争议</button>
+  <button class="tab-btn" onclick="showTab('l','l-query')">物流查询表</button>
+</div>
+
+<div id="l-miss" class="cb show">
+<div class="ic"><h3>未妥投 — 场景分类</h3>
+<ul><li>配送至客户后丢失</li><li>运输途中丢失</li><li>海关 / 清关问题</li><li>物流轨迹异常</li><li>产品尺寸问题</li><li>服务商丢件</li></ul>
+</div>
+<div class="ic"><h3>📋 通用处理流程</h3>
+<div style="white-space:pre-wrap;font-size:13px;line-height:1.7">1. 收到客户反馈 - 优先查看客户订单发货状态 - 核实情况 - 领星+独立站
+2. 根据客户订单编号 - 确认发货仓 - 确认沟通群
+3. 欧洲仓 - 《欧洲海外仓4PX沟通群》
+4. 美国仓 - 《美国海外仓跨越猫群》
+5. 国内发 - 《国内发货报价群》
+6. 确认情况后 - 根据物流反馈的问题 - 与客户沟通是否“补发”
+
+补发流程：
+1. 在ERP系统中 - 仅在退回产品上/订单 - 创建补发售后工单
+2. 补发注意事项：补发不同产品 - 需要添加不同SKU产品
+3. 补发金额：更改为“0”
+4. 补发备注需要说明详细情况
+5. 完成系统工单 - 在《独立站产品、订单问题解决沟通群》@钟总审批
+6. 发货后给客户同步补发跟踪号</div>
+</div>
+</div>
+<div id="l-damage" class="cb "><div class="ic"><h3>包裹破损 — 场景分类</h3><ul><li>外包装破损</li><li>商品损坏</li></ul></div></div><div id="l-delivery" class="cb "><div class="ic"><h3>配送问题 — 场景分类</h3><ul><li>送错地址</li><li>错件 / 串件</li></ul></div></div><div id="l-sign" class="cb "><div class="ic"><h3>签收异常 — 场景分类</h3><ul><li>他人代签</li></ul></div></div>
+<div id="l-reject" class="cb">
+<div class="ic"><h3>退件/拒收 — 场景分类</h3>
+<ul><li>客户拒收</li><li>客户未提货 / 超时</li><li>地址异常推退件</li><li>海关退件</li><li>服务商/物流退件</li></ul>
+</div>
+<div class="note">此三种情况均为客户没有收到，被客观原因退件</div>
+</div>
+
+<div id="l-freight" class="cb">
+<div class="ic"><h3>运费争议 — 说明</h3>
+<div class="note">退回运费 - 就是给客户发货时的运费 （领星 - 详情 - 查询运费 - 注意汇率）</div>
+<p style="font-size:13px;margin-top:12px">退回运费 = 发货时运费（领星 → 详情 → 查询运费，注意汇率换算）</p>
+</div>
+</div>
+<div id="l-query" class="cb">
+<div class="sec-title" style="margin-top:0">📡 物流商查询表</div>
+<div class="logistics-grid">
+<div class="lg-card">
+  <div class="lg-name">Yuntrack（云途）</div>
+  <div class="lg-row"><div class="lg-key">查询链接</div><div class="lg-val"><a href="https://www.yuntrack.com/" target="_blank" style="color:var(--blue)">https://www.yuntrack.com/</a></div></div>
+  <div class="lg-row"><div class="lg-key">单号格式</div><div class="lg-val">YT开头+数字</div></div>
+  <div class="lg-row"><div class="lg-key">示例单号</div><div class="lg-val"><code>YT2609300703013081</code></div></div>
+  <div class="lg-row"><div class="lg-key">适用平台</div><div class="lg-val">独立站</div></div>
+  <div class="lg-row"><div class="lg-key">适用地区</div><div class="lg-val">全球</div></div>
+  <div class="lg-row"><div class="lg-key">备注</div><div class="lg-val">常用于小件/配件</div></div>
+</div>
+<div class="lg-card">
+  <div class="lg-name">FedEx</div>
+  <div class="lg-row"><div class="lg-key">查询链接</div><div class="lg-val"><a href="https://www.fedex.com/" target="_blank" style="color:var(--blue)">https://www.fedex.com/</a></div></div>
+  <div class="lg-row"><div class="lg-key">单号格式</div><div class="lg-val">纯数字（12位）</div></div>
+  <div class="lg-row"><div class="lg-key">示例单号</div><div class="lg-val"><code>870579401562</code></div></div>
+  <div class="lg-row"><div class="lg-key">适用平台</div><div class="lg-val">独立站/亚马逊</div></div>
+  <div class="lg-row"><div class="lg-key">适用地区</div><div class="lg-val">全球</div></div>
+  <div class="lg-row"><div class="lg-key">备注</div><div class="lg-val">时效快</div></div>
+</div>
+<div class="lg-card">
+  <div class="lg-name">DHL</div>
+  <div class="lg-row"><div class="lg-key">查询链接</div><div class="lg-val"><a href="https://www.dhl.com/" target="_blank" style="color:var(--blue)">https://www.dhl.com/</a></div></div>
+  <div class="lg-row"><div class="lg-key">单号格式</div><div class="lg-val">JJD开头（18位）<br>或纯数字（12位）</div></div>
+  <div class="lg-row"><div class="lg-key">示例单号</div><div class="lg-val"><code>JJD000390017070772911
+358960987921</code></div></div>
+  <div class="lg-row"><div class="lg-key">适用平台</div><div class="lg-val">独立站/速卖通</div></div>
+  <div class="lg-row"><div class="lg-key">适用地区</div><div class="lg-val">全球</div></div>
+  <div class="lg-row"><div class="lg-key">备注</div><div class="lg-val">欧洲常用</div></div>
+</div>
+<div class="lg-card">
+  <div class="lg-name">GOFO</div>
+  <div class="lg-row"><div class="lg-key">查询链接</div><div class="lg-val"><a href="https://www.gofo.com/" target="_blank" style="color:var(--blue)">https://www.gofo.com/</a></div></div>
+  <div class="lg-row"><div class="lg-key">单号格式</div><div class="lg-val">OBS开头+数字（18位）</div></div>
+  <div class="lg-row"><div class="lg-key">示例单号</div><div class="lg-val"><code>OBS0562604160S51364056</code></div></div>
+  <div class="lg-row"><div class="lg-key">适用平台</div><div class="lg-val">独立站</div></div>
+  <div class="lg-row"><div class="lg-key">适用地区</div><div class="lg-val">美国</div></div>
+  <div class="lg-row"><div class="lg-key">备注</div><div class="lg-val">美国海外仓</div></div>
+</div>
+<div class="lg-card">
+  <div class="lg-name">Estafeta</div>
+  <div class="lg-row"><div class="lg-key">查询链接</div><div class="lg-val"><a href="https://www.estafeta.com" target="_blank" style="color:var(--blue)">https://www.estafeta.com</a></div></div>
+  <div class="lg-row"><div class="lg-key">单号格式</div><div class="lg-val">纯数字</div></div>
+  <div class="lg-row"><div class="lg-key">示例单号</div><div class="lg-val"><code>501590070119FR0C00EXOC</code></div></div>
+  
+  <div class="lg-row"><div class="lg-key">适用地区</div><div class="lg-val">墨西哥</div></div>
+  <div class="lg-row"><div class="lg-key">备注</div><div class="lg-val">墨西哥本地派送</div></div>
+</div>
+<div class="lg-card">
+  <div class="lg-name">Yes-Speed</div>
+  
+  
+  
+  
+  
+  
+</div></div></div>
+</div><!-- end d-logistics -->
+<!-- ══ 官网售后政策 详情 ══ -->
+<div id="d-policy" class="dp">
+<div class="dp-header">
+  <span style="font-size:24px">📄</span>
+  <h2>官网售后政策（精简版）</h2>
+  <button class="close-btn" onclick="toggle('d-policy')">✕</button>
+</div>
+<div class="tab-bar">
+  <button class="tab-btn active" onclick="showTab('po','po-warranty')">保修范围</button>
+  <button class="tab-btn" onclick="showTab('po','po-return')">退货政策</button>
+  <button class="tab-btn" onclick="showTab('po','po-fee')">服务费说明</button>
+  <button class="tab-btn" onclick="showTab('po','po-nocover')">不在保修范围</button>
+  <button class="tab-btn" onclick="showTab('po','po-hurricane')">Hurricane CO2 特殊条款</button>
+</div>
+<div id="po-warranty" class="cb show">
+<div class="ic"><h3>🛡️ 保修范围 / 保修期</h3>
+<div class="tbl-wrap"><table>
+<thead><tr><th>类别</th><th>保修期</th><th>说明</th></tr></thead><tbody><tr><td>主机核心部件</td><td>12个月</td><td>Z轴、激光器、主板、连接线、电机等</td></tr><tr><td>主机框架部件</td><td>12个月</td><td>上下支撑梁、左右型材、限位开关等</td></tr><tr><td>选配配件</td><td>12个月</td><td>旋转滚轮、工作面板、防护罩、空气净化器、延长套件、气泵套装、摄像头等</td></tr><tr><td>耗材</td><td>不保修</td><td>滤芯、镜片、气泵、说明书、工具包等</td></tr><tr><td>LightBurn授权码</td><td>不保修</td><td>数字产品，90天后可删除购买记录</td></tr><tr><td>耗材</td><td>7天内</td><td>退货运费自理</td></tr></tbody></table></div></div></div><div id="po-return" class="cb">
+<div class="ic"><h3>📦 退货政策 — 核心规则</h3><h4 style="color:var(--orange);margin:16px 0 8px">未拆封商品</h4>
+<div class="tbl-wrap"><table>
+<thead><tr><th>商品类型</th><th>时间窗口</th><th>服务费</th></tr></thead><tbody><tr><td>耗材</td><td>不保修</td><td>滤芯、镜片、气泵、说明书、工具包等</td></tr><tr><td>主机</td><td>15天内</td><td>10%服务费 + 退货运费</td></tr><tr><td>配件</td><td>7天内</td><td>15%服务费 + 退货运费</td></tr><tr><td>耗材</td><td>7天内</td><td>退货运费自理</td></tr></tbody></table></div><h4 style="color:var(--orange);margin:16px 0 8px">已拆封商品（主机）</h4>
+<div class="tbl-wrap"><table>
+<thead><tr><th>状态</th><th>时间窗口</th><th>无质量问题</th><th>有质量问题</th></tr></thead><tbody><tr><td>未使用</td><td>7天内</td><td>退货/换货，15%服务费</td><td class="badge green">免费退换/补发配件</td></tr><tr><td>已使用（&lt;50次）</td><td>15天内</td><td>退货/换货，30%服务费</td><td class="badge green">免费退换/补发配件</td></tr><tr><td>已使用</td><td>30天内</td><td>仅换货，30%服务费</td><td class="badge green">免费退换/补发配件</td></tr><tr><td>已使用</td><td>30天后-1年</td><td>不退换</td><td class="badge green">免费补发配件</td></tr><tr><td>已使用</td><td>30天内</td><td>仅换货，30%服务费</td><td class="badge green">免费退换/补发配件</td></tr><tr><td>已使用</td><td>30天后-1年</td><td>不退换</td><td class="badge green">免费补发配件</td></tr></tbody></table></div><h4 style="color:var(--orange);margin:16px 0 8px">已拆封商品（配件）</h4>
+<div class="tbl-wrap"><table>
+<thead><tr><th>状态</th><th>时间窗口</th><th>无质量问题</th><th>有质量问题</th></tr></thead><tbody><tr><td>未使用/已使用</td><td>15天内</td><td>退货，20%服务费</td><td class="badge green">免费退换/补发配件</td></tr></tbody></table></div></div></div><div id="po-fee" class="cb">
+<div class="ic"><h3>💰 服务费说明</h3>
+<div class="tbl-wrap"><table>
+<thead><tr><th>情况</th><th>服务费</th><th>说明</th><th>特殊情况</th></tr></thead><tbody><tr><td>情况 </td><td><span class="badge orange">服务费</span></td><td>说明</td><td>特殊情况说明</td></tr><tr><td>未拆封主机退货</td><td><span class="badge orange">0.1</span></td><td>退货运费：客户承担（质量问题除外）<br>银行手续费：美国2.5%-6%，欧洲及其他国家3.5%-6%</td><td>主机退货条件：激光使用次数少于50次</td></tr><tr><td>未拆封配件退货</td><td><span class="badge orange">0.15</span></td><td></td><td>换货限制：最多换货2次</td></tr><tr><td>已拆封未使用主机</td><td><span class="badge orange">0.15</span></td><td></td><td>翻新机：只能换翻新机，不能换新机</td></tr><tr><td>已拆封已使用主机</td><td><span class="badge orange">0.3</span></td><td></td><td>差价处理：换高价商品需补差价，换低价商品退差价</td></tr><tr><td>已拆封配件</td><td><span class="badge orange">20%-30%</span></td><td></td><td>Shipping Protection费：发货后不退</td></tr><tr><td>质量问题</td><td><span class="badge orange">免服务费</span></td><td></td><td></td></tr></tbody></table></div></div></div><div id="po-nocover" class="cb">
+<div class="ic"><h3>❌ 不在保修范围项目清单</h3>
+<ul><li>不在保修范围项目清单</li><li>无有效购买凭证</li><li>丢失或被盗</li><li>超过保修期</li><li>非质量问题（30天后）</li><li>免费赠送产品</li><li>非授权维修</li><li>外部损坏（自然灾害、意外、疏忽）</li><li>使用不当（维护不当、存储不当、进水、异物等）</li><li>非授权渠道购买</li><li>未经批准的改装</li><li>耗材（滤芯、镜片等）</li><li>安装不当导致的损坏</li></ul>
+</div></div><div id="po-hurricane" class="cb">
+<div class="ic"><h3>🌀 Hurricane CO2 激光机 — 特殊保修条款</h3>
+<div class="tbl-wrap"><table>
+<thead><tr><th>保修期</th><th>适用部件</th></tr></thead><tbody><tr><td>12个月</td><td>主机部件</td></tr><tr><td>6个月</td><td>CO2激光管</td></tr><tr><td>3个月</td><td>聚焦镜、反射镜、传感器、风扇等</td></tr><tr><td>不保修（收货损坏可免费更换）</td><td>随机配件（说明书、工具等）</td></tr></tbody></table></div></div></div></div><!-- end d-policy -->
+<!-- ══ 其他事项 详情 ══ -->
+<div id="d-other" class="dp">
+<div class="dp-header">
+  <span style="font-size:24px">🔧</span>
+  <h2>其他事项</h2>
+  <button class="close-btn" onclick="toggle('d-other')">✕</button>
+</div>
+<div class="tab-bar">
+  <button class="tab-btn active" onclick="showTab('o','o-resend')">售后补发</button>
+  <button class="tab-btn" onclick="showTab('o','o-vm')">视频会议</button>
+  <button class="tab-btn" onclick="showTab('o','o-invoice')">电子发票</button>
+  <button class="tab-btn" onclick="showTab('o','o-file')">大文件分享</button>
+  <button class="tab-btn" onclick="showTab('o','o-diff')">补差价链接</button>
+  <button class="tab-btn" onclick="showTab('o','o-non')">非自营订单</button>
+  <button class="tab-btn" onclick="showTab('o','o-addr')">地址整理</button>
+  <button class="tab-btn" onclick="showTab('o','o-klarna')">Klarna规则</button>
+  <button class="tab-btn" onclick="showTab('o','o-paypal')">PayPal规则</button>
+</div>
+<div id="o-resend" class="cb show">
+<div class="ic"><h3>📦 两类补发说明</h3><div style="white-space:pre-wrap;font-size:13px;line-height:1.7;margin-bottom:12px">两类补发
+1. 平台补发（领星工单流程）
+2. 售后补发（技术表补发）</div><div style="white-space:pre-wrap;font-size:13px;line-height:1.7;margin-bottom:12px">平台补发：待补充
+说明：漏发/退件等场景需要在领星创建工单补发
+对接人：运营 （胡灿鑫 / 马振清 / 王旭鹏 ）</div><div class="note">加话术 - 需要提前询问客户是否会自己安装</div><div style="white-space:pre-wrap;font-size:13px;line-height:1.7;margin-bottom:12px">售后补发：
+说明：客户在官网/直营渠道购买 - 产品在保质期 - 符合保修条件 - 免费补发
+对接人：技术 / 郑工</div></div></div><div id="o-vm" class="cb">
+<div class="ic"><h3>🎥 视频会议流程</h3>
+<div style="white-space:pre-wrap;font-size:13px;line-height:1.7">
+视频会议链接Google Meet：https://meet.google.com/gef-upfp-rqf
+注意：客户可以通过电脑点击链接，或手机 Google Meet APP（推荐）接入
+
+
+约视频会议场景判断参考：（需根据客户情况灵活判断）
+- 客户多次邮件沟通 - 无法解决客户问题
+- 购买配件收到安装后未解决客户问题 - 建议视频了解情况
+- 待补充
+
+流程 / 说明
+- 想客户主动提出视频会议协助 - 询问客户是否接受
+- 若同意 - 请客户给出方便视频会议大致时间范围
+- 与技术/郑工确认时间是否可约 - 再给客户提供时间选择
+- 根据客户提供的信息缩小时间范围 - 提供合理时间询问客户是否合适
+- 邮件需要注明详细的日期，具体的时间，提供视频链接
+- 客户确认时间后 - 在企V给客户郑工 - 创建日程
+
+企V创建日程
+- 对话框 - 工具栏 - 新建日程
+- 日程标题 （视频会议：工单号）
+- 参加人员
+- 设置好开始 &amp; 结束时间
+- 描述：写清楚技术表/客户邮箱 便于技术快速定位表格位置 / 客户的特殊情况或需求
+- 提醒时间 - 客户根据自己情况设置
+- 注意有日程安排会显示：在忙，查看流程如下：
+- 私人聊天对话框 - 点开头像 - 查看日程
+</div>
+</div></div><div id="o-invoice" class="cb">
+<div class="ic"><h3>🧾 电子发票开具</h3>
+<div style="white-space:pre-wrap;font-size:13px;line-height:1.7">1. 确认客户诉求 - 开具电子发票
+2. 开具发票地址：https://invoice-generator.com/thanks?invoice=21
+3. 注意事项：
+- INVOICE 下面的单号不加#
+- 客户税号/VAT添加在Bill To
+- 添加产品信息要加SKU
+- 注意开电子发票 有时Bill To 和 Ship To可能相同有时可能不同
+- 若客户要求税费单独体现 - 在下面增加Tax（百分比按客户国家来算）
+- Payment Terms：客户的付款方式，不确定可启动AI询问
+- 若遇到重开的情况 - 邮件回复需要告知前一个电子发票已作废</div>
+</div></div><div id="o-file" class="cb"><div class="ic"><h3>📁 大文件分享工具</h3><div style="margin-bottom:8px"><span class="badge blue"></span> Wetransfer  （有效期3天）：https://wetransfer.com/</div><div style="margin-bottom:8px"><span class="badge green">⭐ 推荐</span> transfernow（有效期7天）：https://www.transfernow.net/en#S2</div></div></div><div id="o-diff" class="cb"><div class="ic"><h3>💳 补差价链接</h3><div style="margin-bottom:8px"><a href="原子 (AtomStack) - 美元: https://atomstack.com/products/pay-for-the-price-difference-only" target="_blank" style="color:var(--blue)">原子 (AtomStack) - 美元: https://atomstack.com/products/pay-for-the-price-difference-only</a></div><div style="margin-bottom:8px"><a href="易刻 (IKER) - 美元: https://www.ikier.com/products/pay-for-the-price-difference-only" target="_blank" style="color:var(--blue)">易刻 (IKER) - 美元: https://www.ikier.com/products/pay-for-the-price-difference-only</a></div></div></div><div id="o-non" class="cb">
+<div class="ic"><h3>🏪 非自营订单处理</h3>
+<div style="white-space:pre-wrap;font-size:13px;line-height:1.7">质保期内的非直营订单，需客户提供：
+1）机型、购买链接；
+2）若无购买链接，需提供机型、平台、区域、订单号、客户邮件；
+发非自营群里请销售确认是哪个经销商的；</div>
+</div>
+<div class="ic"><h4>群内通知模板</h4>
+<div class="email-card cn">@刘亲男 @徐玲玲(Amy) @晏子俊 麻烦查一下这个订单是哪个经销商的，
+商品：
+购买链接：
+平台：
+客户邮件；
+区域：
+订单号：</div>
+</div>
+</div><div id="o-addr" class="cb">
+<div class="ic"><h3>📬 地址整理模板</h3>
+<div class="email-card cn">Name: 
+Street: 
+Area/Locality: 
+City: 
+State/County: 
+Postal Code: 
+Country: 
+Phone: 
+Email：</div>
+</div></div><div id="o-klarna" class="cb">
+<div class="ic"><h3>💳 Klarna 规则（先买后付）</h3>
+<div style="white-space:pre-wrap;font-size:13px;line-height:1.7">
+官网：https://www.klarna.com/
+
+一、Klarna 简介
+Klarna 是瑞典的 ** 先买后付（BNPL）** 支付服务商，主打：
+立即发货，延后付款 / 分期免息
+支持：全额付、30 天付、分 3/4 期免息、长期分期（有利息）
+覆盖欧洲 + 美国为主，全球 1.5 亿用户、85 万商户
+
+二、AtomStack 支持 Klarna 的地区
+根据 AtomStack 官方 Payment Help：
+可用于：奥地利、丹麦、芬兰、德国、荷兰、挪威、瑞典、英国（欧洲八国）AtomStack
+结账时直接看到 Klarna 选项
+货币：以当地货币结账，Klarna 后台转 USD 结算给 AtomStackAtomStack
+
+三、Klarna 在 AtomStack 的可用方案（常见）
+Pay in 3（欧洲常见）
+分 3 期，0 利息、无手续费
+自动扣款（信用卡 / 借记卡）
+Pay in 4（美国 / 部分欧洲）
+4 期免息，每 2 周扣一次Klarna
+Pay in 30 days
+先发货，30 天内全额付，免息Klarna
+Financing（长期分期）
+6–24 个月，有利息（APR 6%–36%，看信用
+
+四、使用条件（给客户说明用）
+账单地址必须在支持国家（见上文）
+需有 Klarna 账户（结账时可注册）
+金额一般无下限，但大额可能走 Financing
+不支持中国内地客户注册 / 使用 Klarna
+五、AtomStack 后台说明（内部用）
+开通：AtomStack EU/UK 站点默认已开启 Klarna
+结算：Klarna 按笔收商户手续费（约 3%–8%）
+退款：在 Shopify 后台正常操作，Klarna 自动同步
+客服：客户问题直接推给 Klarna 客服，我们不处理其风控 / 额度 / 账单问题</div>
+</div>
+<div class="ic"><h3>📋 退款规则 / 不接受退款情况</h3>
+<div style="white-space:pre-wrap;font-size:13px;line-height:1.7">
+一、通用退款前提（必须同时满足）
+时效：欧盟 / 全球站 签收后 30 天内申请；美国站普通退货 7 天内、质量问题 30 天内AtomStack。
+产品状态：
+带原包装、全部配件、说明书、无划痕 / 改装 / 进水AtomStack。
+含订单号 / 购买凭证AtomStack。
+流程：必须先邮件联系客服获取 RMA 退货授权，无 RMA 拒收Atomstack。
+渠道：退款原路返回，2–7 个工作日到账AtomStack。
+
+二、按退款原因分（费用责任）
+1）质量问题 / 发错货 / 到货损坏（我方责任）
+✅ 全额退款（含产品价 + 原运费）或免费补发AtomStack。
+✅ 我们承担来回运费AtomStack。
+✅ 无任何手续费 / 重 Stock 费AtomStack。
+2）客户原因（不想要、买错、地址错、Klarna 分期不想付等）
+⚠️ 客户承担来回运费（原运费不退）AtomStack。
+⚠️ 开箱未使用：扣款 5% 重 Stock + 检测费AtomStack。
+⚠️ 已使用 / 拆封：扣款 30%AtomStack。
+⚠️ 支付渠道费：美国 2.5%–6%，欧洲 3.5%–6%（平台收取，我方不退）AtomStack。
+
+三、Klarna 订单退款特别说明
+规则同上，但退款必须在 Klarna 结算前操作，否则会产生 **chargeback 拒付费（约 15–25€）** 并影响客户 Klarna 信用AtomStack。
+客户申请 Klarna “先买后付” 后拒付 / 撤单：视为客户原因，按上述 5%/30% 扣款 + 运费 + 渠道费AtomStack。
+退款后 Klarna 分期自动取消，不会产生利息AtomStack。
+
+四、不接受退款的情况
+超过 30 天（美国普通退货超 7 天）AtomStack。
+无 RMA、自行寄回、包装损坏、配件缺失Atomstack。
+人为损坏、进水、改装、摔落、使用不当AtomStack。
+促销折扣品（除非质量问题）Atomstack。
+翻新机（refurbished）不支持退换AtomStack。
+</div>
+</div></div><div id="o-paypal" class="cb">
+<div class="ic"><h3>💰 PayPal 规则</h3>
+<p style="color:var(--muted);font-size:13px">PayPal 规则详情请参考内部运营文档或向运营团队确认最新规则。</p>
+
+</div></div></div><!-- end d-other -->
+<!-- ══ VAT 税费 详情 ══ -->
+<div id="d-vat" class="dp">
+<div class="dp-header">
+  <span style="font-size:24px">🏷️</span>
+  <h2>税费 VAT 处理</h2>
+  <button class="close-btn" onclick="toggle('d-vat')">✕</button>
+</div>
+<div class="tab-bar">
+  <button class="tab-btn active" onclick="showTab('v','v-uk-flow')">英国 · 关税流程</button>
+  <button class="tab-btn" onclick="showTab('v','v-uk-yes')">英国 · 客户接受</button>
+  <button class="tab-btn" onclick="showTab('v','v-uk-no')">英国 · 客户不接受</button>
+  <button class="tab-btn" onclick="showTab('v','v-ch-flow')">瑞士 · 关税流程</button>
+  <button class="tab-btn" onclick="showTab('v','v-ch-yes')">瑞士 · 客户接受</button>
+  <button class="tab-btn" onclick="showTab('v','v-ch-no')">瑞士 · 客户不接受</button>
+</div>
+<div id="v-uk-flow" class="cb show">
+<div class="ic"><h3>📋 流程 / 说明</h3>
+<div style="white-space:pre-wrap;font-size:13px;line-height:1.7">流程 / 说明
+说明：英国非欧盟国家，海关可能因不同货值的产品收取一定的关税，需要提前与顾客协商，看客户是否愿意接受
+
+
+流程：
+1.运营在运营群发起 
+2.@客服跟进 
+3.客服用此模板给客户发邮件询问/确认
+4.客户回复后同步运营操作
+5.操作结果回复客户
+
+结果：
+客户接受关税
+1.客户接受同意
+2.同步信息给运营
+3.参考回复模板回复客户
+
+客户不接受关税
+1.客户拒绝 - 取消订单/退款
+2.同步信息给运营
+3.运营回复完成退款
+4.参考回复模板回复客户
+
+特别说明：
+此类退款不产生手续费，全额退款
+</div>
+</div>
+<div class="email-label cn">📧 中文模板</div><div class="email-card cn">标题：关于您的订单#AtomStackxxxxx的重要通知
+
+
+正文：
+
+尊敬的xxx先生/女士：
+
+祝您一切顺意。现就您的订单#AtomStackxxxxx的一项重要事宜，向您正式告知。
+
+货物运输过程中，可能会产生关税及其他海关税费。若海关对该批货物征收相关费用，相关费用需由收件人（您）自行承担。
+
+关于清关费用，我方无法确认具体金额。根据往期客户的反馈，多数客户仅需缴纳增值税（VAT），无其他额外费用；亦有部分客户反馈无需办理清关手续。海关部门会将具体的费用金额及清关相关须知直接与您联系告知，请问您是否接受该事宜？
+
+我方在安排货物发货前，需确认您已了解该潜在情况，并同意承担相关适用的海关税费。您对此事的确认，是我方为您安排该订单发货的必要前提。
+
+烦请您尽快回复本邮件，确认您已了解并同意承担订单货物可能产生的海关税费。若您有任何疑问或顾虑，可随时与我方联系，我方将竭诚为您解答。
+
+感谢您的配合与理解。
+
+此致</div>
+<div class="email-label en">📧 English Template</div><div class="email-card en">Subject： Order  #AtomStack13744  - Customs Duties Confirmation 
+
+
+Content：
+
+Dear Customer,
+
+Hope this email finds you well. We would like to inform you about a crucial aspect related to your order  #AtomStackxxxxx.
+
+During the shipping process, customs duties or taxes may be incurred. If customs imposes any charges on the shipment, it is the responsibility of the recipient (you) to cover these expenses.
+
+Regarding customs clearance fees, we are unable to determine the exact amount. Based on feedback from previous customers, most only need to pay VAT, with no additional charges. Some customers reported not having to clear customs at all. The customs office will contact you directly with the specific costs and instructions for clearance. Is that acceptable for you?
+
+Before proceeding with the shipment, we want to ensure that you are aware of this potential scenario and agree to bear any applicable customs duties. Your confirmation on this matter is essential for us to proceed with dispatching your order.
+Please respond to this email at your earliest convenience to confirm your understanding and agreement regarding potential customs duties. If you have any questions or concerns, feel free to reach out, and we&#39;ll be happy to assist.
+
+Thank you for your cooperation and understanding.
+
+Best Regards,</div>
+</div><div id="v-uk-yes" class="cb ">
+<div class="ic"><h3>📋 流程 / 说明</h3>
+<div style="white-space:pre-wrap;font-size:13px;line-height:1.7">流程 / 说明
+
+客户接受关税
+1.客户接受同意
+2.同步信息给运营
+3.参考回复模板回复客户
+
+
+客户回复 - 接受关税
+
+参考 - 此模板回复客户</div>
+</div>
+<div class="email-label cn">📧 中文模板</div><div class="email-card cn">尊敬的客户：
+
+感谢您关于关税事宜的确认。
+
+我们已与将相关信息同步给运营部门，将尽快安排您的订单#AtomStackxxxxx的发货。
+
+包裹发出后，系统会自动向您发送包含配送详情的发货通知邮件。请留意您的邮箱。
+
+如有任何其他问题，请随时与我们联系。
+
+此致
+敬礼</div>
+<div class="email-label en">📧 English Template</div><div class="email-card en">Dear Customer,
+
+Thank you for your confirmation regarding the customs duties.
+
+We have forwarded the relevant information to our operations department and will arrange the shipment for your order #AtomStackxxxxx accordingly.
+
+Once the package is dispatched, the system will automatically send you a shipping notification email with delivery details. Please check your email for updates.
+
+If you have any further questions, please feel free to contact us.
+
+Best regards,</div>
+</div><div id="v-uk-no" class="cb ">
+<div class="ic"><h3>📋 流程 / 说明</h3>
+<div style="white-space:pre-wrap;font-size:13px;line-height:1.7">流程 / 说明
+
+客户不接受关税
+1.客户拒绝 - 取消订单/退款
+2.同步信息给运营
+3.运营回复完成退款
+4.参考回复模板回复客户
+
+客户回复 - 不接受关税
+
+参考 - 此模板回复客户</div>
+</div>
+<div class="email-label cn">📧 中文模板</div><div class="email-card cn">尊敬的客户：
+
+感谢您的邮件回复。
+
+我们已为您取消订单#AtomStackxxxxx并完成退款, 退款将原路退回并由银行在3-7个工作日内处理到账，敬请留意账户到账情况。
+
+若超出该周期仍未收到退款，请及时与我们联系。
+
+祝您工作愉快！</div>
+<div class="email-label en">📧 English Template</div><div class="email-card en">Dear Customer,
+
+Thank you for your email reply.
+
+We have cancelled your order #AtomStackxxxxx and processed the refund for you. The refund will be returned to your original payment method and processed by the bank within 3-7 business days. Keep an eye out for the refund credit.
+
+If you do not receive the refund after this period, please contact us promptly.
+
+Wishing you a pleasant day!
+
+Best Regards</div>
+</div><div id="v-ch-flow" class="cb ">
+<div class="ic"><h3>📋 流程 / 说明</h3>
+<div style="white-space:pre-wrap;font-size:13px;line-height:1.7">
+说明：瑞士情况较为特殊，海关可能因不同货值的产品收取一定的关税，需要提前与顾客协商，看客户是否愿意接受
+
+
+流程：
+1.运营在运营群发起 
+2.@客服跟进 
+3.客服用此模板给客户发邮件询问/确认
+4.客户回复后同步运营操作
+5.操作结果回复客户
+
+结果：
+客户接受关税
+1.客户接受同意
+2.同步信息给运营
+3.参考回复模板回复客户
+
+客户不接受关税
+1.客户拒绝 - 取消订单/退款
+2.同步信息给运营
+3.运营回复完成退款
+4.参考回复模板回复客户
+
+
+特别说明：
+此类退款不产生手续费，全额退款
+</div>
+</div>
+<div class="email-label cn">📧 中文模板</div><div class="email-card cn">标题： 订单 #AtomStackxxxxx - 关税确认（瑞士）
+
+
+尊敬的客户：
+
+希望这封邮件能让您一切安好。
+
+祝您一切顺意。现就您的订单#AtomStackxxxxx的一项重要事宜，向您正式告知。
+
+在发往瑞士的运输过程中，可能会产生关税或税费。如果海关对货物征收任何费用，由收件人（您）承担这些费用。关于清关费用，我们无法确定确切金额。根据以往瑞士客户的反馈，大多数人只需支付增值税，无需额外费用。瑞士海关办公室将直接与您联系，告知具体费用及清关指引。
+
+在安排发货前，我们希望确保您已了解上述情况，并同意承担任何适用的关税。您的确认对我们安排发货至关重要。我们期待尽早收到您的回复和确认。
+
+如有任何疑问或顾虑，请随时联系我们，我们将乐意为您提供协助。
+感谢您的合作与理解。
+
+此致
+敬礼</div>
+<div class="email-label en">📧 English Template</div><div class="email-card en">Subject： Order #AtomStackxxxxx - Customs Duties Confirmation  (Switzerland)
+
+
+Dear Customer,
+
+Hope this email finds you well.
+
+Hope this email finds you well. We would like to inform you about a crucial aspect related to your order  #AtomStackxxxxx.
+
+During the shipping process to Switzerland, customs duties or taxes may be incurred. If customs imposes any charges on the shipment, it is the responsibility of the recipient (you) to cover these expenses. Regarding customs clearance fees, we are unable to determine the exact amount. Based on feedback from previous customers in Switzerland, most only need to pay VAT with no additional charges. The Swiss customs office will contact you directly with the specific costs and instructions for clearance.
+
+Before proceeding with the shipment, we want to ensure that you are aware of the above scenarios and agree to bear any applicable customs duties. Your confirmation on this matter is essential for us to proceed with dispatching your order. We eagerly await your reply and confirmation at your earliest convenience.
+
+If you have any questions or concerns, feel free to reach out, and we&#39;ll be happy to assist.
+
+Thank you for your cooperation and understanding.
+
+Best Regards</div>
+</div><div id="v-ch-yes" class="cb ">
+<div class="ic"><h3>📋 流程 / 说明</h3>
+<div style="white-space:pre-wrap;font-size:13px;line-height:1.7">
+客户接受关税
+1.客户接受同意
+2.同步信息给运营
+3.参考回复模板回复客户
+</div>
+</div>
+<div class="email-label cn">📧 中文模板</div><div class="email-card cn">尊敬的客户：
+
+感谢您关于关税事宜的确认。
+
+我们已与将相关信息同步给运营部门，将尽快安排您的订单#AtomStackxxxxx的发货。
+
+包裹发出后，系统会自动向您发送包含配送详情的发货通知邮件。请留意您的邮箱。
+
+如有任何其他问题，请随时与我们联系。
+
+此致
+敬礼</div>
+<div class="email-label en">📧 English Template</div><div class="email-card en">Dear Customer,
+
+Thank you for your confirmation regarding the customs duties.
+
+We have forwarded the relevant information to our operations department and will arrange the shipment for your order #AtomStackxxxxx accordingly.
+
+Once the package is dispatched, the system will automatically send you a shipping notification email with delivery details. Please check your email for updates.
+
+If you have any further questions, please feel free to contact us.
+
+Best regards,</div>
+</div><div id="v-ch-no" class="cb ">
+<div class="ic"><h3>📋 流程 / 说明</h3>
+<div style="white-space:pre-wrap;font-size:13px;line-height:1.7">
+客户不接受关税
+1.客户拒绝 - 取消订单/退款
+2.同步信息给运营
+3.运营回复完成退款
+4.参考回复模板回复客户
+</div>
+</div>
+<div class="email-label cn">📧 中文模板</div><div class="email-card cn">尊敬的客户：
+
+感谢您的邮件回复。
+
+我们已为您取消订单#AtomStackxxxxx并完成退款, 退款将原路退回并由银行在3-7个工作日内处理到账，敬请留意账户到账情况。
+
+若超出该周期仍未收到退款，请及时与我们联系。
+
+祝您工作愉快！</div>
+<div class="email-label en">📧 English Template</div><div class="email-card en">Dear Customer,
+
+Thank you for your email reply.
+
+We have cancelled your order #AtomStackxxxxx and processed the refund for you. The refund will be returned to your original payment method and processed by the bank within 3-7 business days. Keep an eye out for the refund credit.
+
+If you do not receive the refund after this period, please contact us promptly.
+
+Wishing you a pleasant day!
+
+Best Regards</div>
+</div></div><!-- end d-vat -->
+<!-- ══ P1 召回 详情 ══ -->
+<div id="d-p1" class="dp">
+<div class="dp-header">
+  <span style="font-size:24px">🔔</span>
+  <h2>P1 召回项目</h2>
+  <button class="close-btn" onclick="toggle('d-p1')">✕</button>
+</div>
+<div class="note danger">⚠️ 此召回为基于欧盟监管要求的预防性合规升级，并非产品存在安全事故。</div>
+<div class="tab-bar">
+  <button class="tab-btn active" onclick="showTab('p1','p1-non-eu')">非欧盟国家 · 咨询回复</button>
+  <button class="tab-btn" onclick="showTab('p1','p1-eu')">欧盟国家 · 咨询回复</button>
+  <button class="tab-btn" onclick="showTab('p1','p1-refund')">退货退款流程（仅自营）</button>
+</div>
+<div id="p1-non-eu" class="cb show">
+<div class="ic"><h3>🌎 非欧盟国家 — 咨询官方统一回复</h3></div>
+<div class="email-label cn">📧 中文模板</div><div class="email-card cn">目前的召回对美国地区用户的回复围绕：
+
+尊敬的顾客，
+
+感谢你的邮件咨询关于P1召回的问题，现回复如下供您参考：
+
+1.这是基于欧盟监管要求的“预防性合规升级”，并非产品出现安全问题，并且未出现任何已知的任何安全事故报告
+
+2.P1的升级版本会根据欧盟的标准进行额外的安全冗余设计，可能包含的升级包括单不限于：底板不可拆卸，防护外壳的安全装置无法手动绕过等。欧盟版本的价格可能与现在的销售价格不同。
+
+3.我们目前为非欧盟地区用户提供: 1.安全指南提醒 2.升级后的用户手册
+
+感谢你对我们的关注，有任何疑问请你塑随时与我们联系
+
+此致</div>
+<div class="email-label en">📧 English Template</div><div class="email-card en">Subject: Response to Your P1 Product Inquiry
+
+Dear Customer,
+
+Thank you for your email inquiry regarding the P1 recall issue. Please find our response below for your reference:
+
+1.This is a &quot;preventive compliance upgrade&quot; based on EU regulatory requirements, not due to any product safety issues. No known safety incidents have been reported.
+2.The upgraded version of P1 will incorporate additional safety redundancy designs according to EU standards, which may include but are not limited to: non-removable base plate, protective enclosure safety mechanisms that cannot be manually bypassed, etc. The price for the EU version may differ from the current selling price.
+3.For non-EU region users, we currently provide: (1) safety guideline reminders, and (2) upgraded user manuals.
+
+Friendly Reminder: P1 units purchased through different channels or platforms can only be returned and refunded through the original purchase channel or platform.
+
+Thank you for your attention to this matter. Please feel free to contact us if you have any questions.
+
+Best regards,</div>
+</div><div id="p1-eu" class="cb">
+<div class="ic"><h3>🇪🇺 欧盟国家 — 咨询说明/回复</h3></div>
+<div class="email-label cn">📧 中文模板</div><div class="email-card cn">尊敬的顾客，
+
+感谢你的邮件咨询有关于P1召回的问题，
+
+如下回复供您参考：（特别说明）
+
+目前P1下架是由于目前的安全防护能够被用户手动绕过，如防护箱，从而存在安全风险，并未有任何已知的安全事故发生。请勿担心。
+
+正常使用不绕过原有的安全防护则不会存在安全问题，如果需要的话，我们可以提供一版最新的用户手册给你
+
+温馨提示：不同渠道或平台购买的P1只能在对应的渠道货平台完成退货和退款
+
+希望以上信息对你有帮助，有任何疑问请您随时与我们联系
+
+感谢您的支持与理解。
+
+此致</div>
+<div class="email-label en">📧 English Template</div><div class="email-card en">Subject：Regarding the P1 Product Recall
+
+Dear Customer,
+
+Thank you for your email inquiry regarding the P1 product recall.
+
+Please find our clarification below for your reference (Special Note):
+
+The P1 series has been discontinued because its existing safety protection (such as the protective box) can be manually bypassed by users, which poses a potential safety risk. No known safety incidents have occurred, so please rest assured.
+
+The product is completely safe for normal use, as long as you do not bypass the original safety protection. We can provide you with the latest user manual upon request.
+
+Friendly Reminder: P1 units purchased through different channels or platforms can only be returned and refunded through the original purchase channel or platform.
+
+We hope the above information is helpful. Please feel free to contact us if you have any further questions.
+
+Thank you for your support and understanding.
+
+Best regards,</div>
+</div><div id="p1-refund" class="cb">
+<div class="ic"><h3>📋 P1 退货退款 — 处理说明（仅针对自营订单）</h3>
+<div style="white-space:pre-wrap;font-size:13px;line-height:1.7">欧盟+非欧盟 国家
+
+
+
+（若非欧盟国家客户也要求退回，请与运营团队优先协商确认后再操作退货退款）
+
+
+虽然目前p1没有任何安全事故发生，但是我们正在进行符合欧盟安全标准的一些新的升级以增加更多冗余安全功能，如果用户是独立站下单的，告知我们的召回流程并且说明更新后的p1仍然在生产中，可能需要等待一段时间才能上线售卖，如果您目前的产品使用没有问题，并且不希望召回，我们会向您发送更新后的说明书以及安全指导和一些网站积分以弥补此消息为您带来的不便
+</div>
+</div>
+<div class="email-label cn">📧 中文模板</div><div class="email-card cn">尊敬的顾客：
+
+感谢您的邮件，我们已获悉您需要为 P1 设备办理退货退款。
+
+为顺利协助您完成退货退款流程，现将具体操作步骤同步如下：
+1.请告知我们您的 P1 设备使用情况，有无故障，以及是否保留原包装
+2.确认并提供您的退货地址
+3.我们将为您申请退货标签（处理时效：3-7 个工作日）
+4.退货标签申请完成后，我们会第一时间通过邮件发送给您
+5.请将 P1 设备妥善包装，把退货标签贴在外箱上，交由对应物流公司寄出即可
+6.完成投递后，请邮件同步告知我们，方便我们跟进退件物流
+7.仓库签收退回的产品后，我们将立即为您办理退款
+
+温馨提示：退款将由银行在 3-7 个工作日内处理到账，请您留意账户到账情况。
+
+希望以上信息对您有所帮助，如有任何疑问，欢迎随时与我们联系。
+
+感谢您的支持与理解！
+
+此致</div>
+<div class="email-label en">📧 English Template</div><div class="email-card en">Dear Customer,
+
+Thank you for your email. We have noted your request to return and refund your P1 device.
+
+To assist you with the return and refund process smoothly, please find the specific steps below:
+1.Please let us know the condition of your P1 device and whether you still have the original packaging.
+2.Confirm and provide your return address.
+3.We will apply for a return label for you (processing time: 3-7 business days).
+4.Once the return label is approved, we will send it to you via email immediately.
+5.Please pack the P1 device securely, attach the return label to the outer box, and hand it over to the corresponding logistics company for shipment.
+6.After completing the drop-off, please email us to confirm so we can track the return shipment.
+7.Upon receipt of the returned product at our warehouse, we will process your refund immediately.
+
+Friendly Reminder: The refund will be processed by the bank within 3-7 business days. Please keep an eye on your account for the credit.
+
+We hope the above information is helpful. 
+
+Please feel free to contact us If you have any questions.
+
+Thank you for your support and understanding!
+
+Best regards,</div>
+</div></div><!-- end d-p1 -->
+<!-- ══ 经销商明细 详情 ══ -->
+<div id="d-dealer" class="dp">
+<div class="dp-header">
+  <span style="font-size:24px">🏪</span>
+  <h2>经销商明细</h2>
+  <button class="close-btn" onclick="toggle('d-dealer')">✕</button>
+</div>
+<div class="note info">💡 质保期内的非直营订单，需先确认所属经销商后再处理。</div>
+<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:14px;margin-top:16px">
+
+<div class="dealer-card">
+  <div class="dealer-no">#1</div>
+  <div class="dealer-name">科原 <span class="badge blue">亚马逊</span></div>
+  <div class="dealer-row"><div class="dealer-key">店铺名</div><div>Clientlikegod</div></div>
+  
+  <div class="dealer-row"><div class="dealer-key">内部对接</div><div><span class="badge purple">陆工</span></div></div>
+</div>
+<div class="dealer-card">
+  <div class="dealer-no">#2</div>
+  <div class="dealer-name">科原 <span class="badge blue">亚马逊</span></div>
+  <div class="dealer-row"><div class="dealer-key">店铺名</div><div>Shenzhen Keyuan Electric Co., Ltd.</div></div>
+  <div class="dealer-row"><div class="dealer-key">备注</div><div style="white-space:pre-wrap">订单凭证上地址为：
+龙岗区平湖街道山厦社区融悦大厦2栋813
+深圳市，广东,518000
+CN</div></div>
+  <div class="dealer-row"><div class="dealer-key">内部对接</div><div><span class="badge purple">陆工</span></div></div>
+</div>
+<div class="dealer-card">
+  <div class="dealer-no">#3</div>
+  <div class="dealer-name">通拓 <span class="badge blue">TOMTOP</span></div>
+  
+  <div class="dealer-row"><div class="dealer-key">备注</div><div style="white-space:pre-wrap">客户提供的订单凭证上的客服邮箱是support@tomtop.com</div></div>
+  
+</div>
+<div class="dealer-card">
+  <div class="dealer-no">#4</div>
+  <div class="dealer-name">云羿 <span class="badge blue">亚马逊</span></div>
+  <div class="dealer-row"><div class="dealer-key">店铺名</div><div>shenzhenshimofeikejiyouxiangongsi</div></div>
+  <div class="dealer-row"><div class="dealer-key">备注</div><div style="white-space:pre-wrap">订单凭证上地址为：
+henggangjiedaohuaqiaoxincunshequ
+rongdeshidaiguangchangB603
+shenzhenshi.longgangqu,guangdongsheng.
+518000
+CN
+中国广东省深圳市龙岗区横岗街道华侨新村社区荣德时代广场 B603，邮编 518000</div></div>
+  <div class="dealer-row"><div class="dealer-key">内部对接</div><div><span class="badge purple">郑工</span></div></div>
+</div>
+<div class="dealer-card">
+  <div class="dealer-no">#5</div>
+  <div class="dealer-name">云羿 <span class="badge blue">亚马逊</span></div>
+  <div class="dealer-row"><div class="dealer-key">店铺名</div><div>Amazon EU S.a.r.L.</div></div>
+  
+  <div class="dealer-row"><div class="dealer-key">内部对接</div><div><span class="badge purple">郑工</span></div></div>
+</div>
+<div class="dealer-card">
+  <div class="dealer-no">#6</div>
+  <div class="dealer-name">云羿 <span class="badge blue">Mercado Libre</span></div>
+  <div class="dealer-row"><div class="dealer-key">店铺名</div><div>LASERLUCKYSHOP</div></div>
+  
+  <div class="dealer-row"><div class="dealer-key">内部对接</div><div><span class="badge purple">郑工</span></div></div>
+</div>
+<div class="dealer-card">
+  <div class="dealer-no">#7</div>
+  <div class="dealer-name">云羿 <span class="badge blue">亚马逊</span></div>
+  <div class="dealer-row"><div class="dealer-key">店铺名</div><div>Vallarre</div></div>
+  
+  <div class="dealer-row"><div class="dealer-key">内部对接</div><div><span class="badge purple">郑工</span></div></div>
+</div>
+<div class="dealer-card">
+  <div class="dealer-no">#8</div>
+  <div class="dealer-name">云羿 <span class="badge blue">德国亚马逊</span></div>
+  <div class="dealer-row"><div class="dealer-key">店铺名</div><div>wuhanyangaochangfengdashujukejiyouxiangongsi（武汉阳aochangfeng大数据科技有限公司，拼音转写）</div></div>
+  
+  <div class="dealer-row"><div class="dealer-key">内部对接</div><div><span class="badge purple">郑工</span></div></div>
+</div>
+<div class="dealer-card">
+  <div class="dealer-no">#9</div>
+  <div class="dealer-name">云羿 <span class="badge blue">德国亚马逊</span></div>
+  <div class="dealer-row"><div class="dealer-key">店铺名</div><div>wuhanmingshengdongwangluokejiyouxiangongsi（武汉明盛东旺网络科技有限公司，拼音转写）</div></div>
+  
+  <div class="dealer-row"><div class="dealer-key">内部对接</div><div><span class="badge purple">郑工</span></div></div>
+</div>
+<div class="dealer-card">
+  <div class="dealer-no">#10</div>
+  <div class="dealer-name">智汇创想 <span class="badge blue">Mercado Libre</span></div>
+  <div class="dealer-row"><div class="dealer-key">店铺名</div><div>OXXO</div></div>
+  <div class="dealer-row"><div class="dealer-key">备注</div><div style="white-space:pre-wrap">OXXO 是墨西哥本土连锁便利店，为平台主流线下付款渠道。</div></div>
+  <div class="dealer-row"><div class="dealer-key">内部对接</div><div><span class="badge purple">陆工</span></div></div>
+</div>
+<div class="dealer-card">
+  <div class="dealer-no">#11</div>
+  <div class="dealer-name">云羿 <span class="badge blue">Cdiscount</span></div>
+  <div class="dealer-row"><div class="dealer-key">店铺名</div><div>CHYAJKM</div></div>
+  
+  <div class="dealer-row"><div class="dealer-key">内部对接</div><div><span class="badge purple">郑工</span></div></div>
+</div></div>
+</div><!-- end d-dealer -->
+
+</div><!-- end .main -->
+
+<button id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+// ─── toggle detail panel ───
+function toggle(id){
+  const el = document.getElementById(id);
+  if(!el) return;
+  const isShow = el.classList.contains('show');
+  // close all
+  document.querySelectorAll('.dp').forEach(d=>{ d.classList.remove('show'); });
+  if(!isShow){
+    el.classList.add('show');
+    el.scrollIntoView({behavior:'smooth', block:'start'});
+  }
+}
+
+// ─── tab switcher ───
+function showTab(group, tabId){
+  // hide all .cb in same panel
+  const panel = document.getElementById(tabId).closest('.dp');
+  if(!panel) return;
+  panel.querySelectorAll('.cb').forEach(c=>c.classList.remove('show'));
+  panel.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+  const target = document.getElementById(tabId);
+  if(target) target.classList.add('show');
+  // find clicked btn
+  event.target.classList.add('active');
+}
+
+// ─── back to top ───
+window.addEventListener('scroll',()=>{
+  const b = document.getElementById('btt');
+  if(b) b.classList.toggle('show', window.scrollY > 300);
+});
+
+// ─── language switch (hide/show CN vs EN elements) ───
+function setLang(lang){
+  document.querySelectorAll('.lang-btn button').forEach(b=>b.classList.remove('active'));
+  event.target.classList.add('active');
+  if(lang==='en'){
+    document.querySelectorAll('.email-card.cn,.email-label.cn').forEach(e=>e.style.display='none');
+    document.querySelectorAll('.email-card.en,.email-label.en').forEach(e=>e.style.display='block');
+  } else {
+    document.querySelectorAll('.email-card.cn,.email-label.cn,.email-card.en,.email-label.en').forEach(e=>e.style.display='');
+  }
+}
+</script>
+</body>
+</html>
